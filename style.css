@@ -1,0 +1,136 @@
+:root {
+    --primary-red: #D32F2F;
+    --text-color: #212121;
+    --bg-white: #FFFFFF;
+    --bg-gray: #F5F5F5;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-gray);
+    color: var(--text-color);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* Prevent scrolling if full screen app */
+}
+
+/* Background Image Handling */
+.main-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    /* Using the large asset as background. */
+    background-image: url('./assets/img/Landing\ Page\ Baru\ 1.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+/* Custom Colors */
+.bg-primary-red {
+    background-color: var(--primary-red) !important;
+}
+
+.text-primary-red {
+    color: var(--primary-red) !important;
+}
+
+.btn-primary-red {
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-red:hover {
+    background-color: #b71c1c;
+    color: white;
+}
+
+.bg-light-gray {
+    background-color: #E0E0E0;
+}
+
+/* Navbar / Floating Header */
+.floating-nav {
+    min-width: 400px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    border-radius: 6px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.logo-icon .diamond {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Central Button Styles */
+.central-button-container {
+    width: 220px;
+    /* Adjust based on preference */
+    max-width: 30vw;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+.btn-main-diamond {
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.btn-main-diamond:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 10px 20px rgba(211, 47, 47, 0.3));
+}
+
+.main-logo-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Footer */
+footer {
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-outline-danger {
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--primary-red);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .floating-nav {
+        min-width: 90%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .ms-5 {
+        margin-left: 0 !important;
+    }
+
+    .central-button-container {
+        width: 160px;
+    }
+}
