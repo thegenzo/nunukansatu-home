@@ -82,26 +82,126 @@ body {
 /* Central Button Styles */
 .central-button-container {
     width: 220px;
-    /* Adjust based on preference */
-    max-width: 30vw;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 220px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 10;
 }
 
-.btn-main-diamond {
-    transition: transform 0.4s ease;
+.diamond-menu-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Common styles for sub-buttons */
+.menu-btn {
+    position: absolute;
+    width: 320px;
+    /* Initial size for sub-buttons */
+    height: auto;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Bouncy effect */
+    z-index: 1;
+    /* Behind main button initially */
+    pointer-events: none;
     display: block;
 }
 
-.btn-main-diamond:hover {
+.menu-btn img {
+    width: 100%;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.menu-btn:hover img {
     transform: scale(1.1);
-    filter: drop-shadow(0 10px 20px rgba(211, 47, 47, 0.3));
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* Main button */
+.btn-main-diamond {
+    position: relative;
+    z-index: 10;
+    width: 358px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .main-logo-img {
     width: 100%;
-    height: auto;
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.2s ease;
+}
+
+.btn-main-diamond:hover .main-logo-img {
+    transform: scale(0.770);
+    /* Slight pulse on hovering itself */
+}
+
+
+/* --- Hover Interaction --- */
+
+/* Reveal buttons and enable pointer events */
+.central-button-container:hover .menu-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Move Main Button Down */
+.central-button-container:hover .btn-main-diamond {
+    transform: translateY(160px);
+}
+
+/* Move Top Button Up */
+.central-button-container:hover .btn-top {
+    transform: translateY(-180px);
+}
+
+/* Move Left Button Left */
+.central-button-container:hover .btn-left {
+    transform: translateX(-240px);
+}
+
+/* Move Right Button Right */
+.central-button-container:hover .btn-right {
+    transform: translateX(240px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .central-button-container {
+        width: 160px;
+        height: 160px;
+    }
+
+    .menu-btn {
+        width: 90px;
+    }
+
+    .central-button-container:hover .btn-main-diamond {
+        transform: translateY(90px);
+    }
+
+    .central-button-container:hover .btn-top {
+        transform: translateY(-90px);
+    }
+
+    .central-button-container:hover .btn-left {
+        transform: translateX(-100px);
+    }
+
+    .central-button-container:hover .btn-right {
+        transform: translateX(100px);
+    }
 }
 
 /* Footer */
