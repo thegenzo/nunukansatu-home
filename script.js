@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Get the modal and buttons
-    const modal = document.getElementById('admModal');
-    const btn = document.querySelector('a[href="#"].menu-btn.btn-top'); // Select the ADM Pemerintah button
+    const modal = document.getElementById('publicModal');
+    const btn = document.querySelector('a[href="#"].menu-btn.btn-left'); // Select the Layanan Publik button
     const closeBtn = document.querySelector('.close-modal');
 
     // Check if elements exist to avoid errors
