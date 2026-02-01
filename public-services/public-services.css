@@ -1,0 +1,104 @@
+.navbar-header {
+	background-color: #FFFFFF;
+	border-bottom: 3px solid #D32F2F;
+	height: 100px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+.navbar-logo-section {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	margin-left: 100px;
+}
+.navbar-logo {
+	width: 54px;
+	height: 54px;
+}
+.navbar-title {
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 36px;
+	color: #D32F2F;
+	margin: 0;
+	line-height: 1;
+}
+.navbar-bar {
+	background-color: #CF1B3B;
+	height: 3px;
+	width: 34px;
+	margin-top: 4px;
+}
+.navbar-actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-right: 90px;
+}
+.btn-navbar-search {
+	background-color: #D32F2F;
+	color: #F5F5F5;
+	border: none;
+	border-radius: 10px;
+	padding: 10px 22px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.btn-navbar-news {
+	background-color: #FFFFFF;
+	color: #D32F2F;
+	border: 1px solid #D32F2F;
+	border-radius: 10px;
+	padding: 10px 22px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.navbar-decor-left, .navbar-decor-right {
+	position: absolute;
+	top: 0;
+	width: 257px;
+	height: 95px;
+}
+.navbar-decor-left {
+	background-image: url('../assets/img/Footer 2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	left: 0;
+}
+.navbar-decor-right {
+	background-image: url('../assets/img/Footer 3.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	right: 0;
+}
+.navbar-content {
+	position: relative;
+	z-index: 1;
+}
+@media (max-width: 768px) {
+	.navbar-header {
+		height: auto;
+		padding: 10px;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.navbar-logo-section {
+		gap: 12px;
+	}
+	.navbar-title {
+		font-size: 28px;
+	}
+	.navbar-actions {
+		flex-wrap: wrap;
+	}
+}
