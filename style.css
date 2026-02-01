@@ -501,3 +501,80 @@ footer {
         height: 60px;
     }
 }
+
+/* Pengaduan Modal Styles */
+.pengaduan-modal-content {
+    width: 400px;
+    height: auto;
+    max-height: 600px;
+}
+
+.pengaduan-options {
+    border: 1px solid #D32F2F;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    overflow: hidden;
+}
+
+.pengaduan-option {
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+.pengaduan-option:last-child {
+    border-bottom: none;
+}
+
+.option-title {
+    color: #212121;
+    margin: 0 0 4px 0;
+    font-weight: 500;
+    text-align: center;
+}
+
+.pengaduan-option ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #BDBDBD;
+}
+
+.pengaduan-option li {
+    list-style-type: disc;
+    margin: 0;
+}
+
+/* Pengaduan Popup Styles */
+.pengaduan-popup {
+    position: absolute;
+    right: 150px;
+    bottom: 80px;
+    width: 280px;
+    display: none;
+    z-index: 2000;
+}
+
+.pengaduan-popup.show {
+    display: block;
+}
+/* Pengaduan Button Active State */
+.btn-pengaduan-active {
+    background-color: #D32F2F !important;
+    color: #FFFFFF !important;
+    border-color: #D32F2F !important;
+}
+@media (max-width: 576px) {
+    .pengaduan-modal-content {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .pengaduan-popup {
+        right: 10px;
+        bottom: 90px;
+        width: 90%;
+        max-width: 320px;
+    }
+}
