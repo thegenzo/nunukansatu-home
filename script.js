@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Get the modal and buttons
-    const modal = document.getElementById('publicModal');
-    const btn = document.querySelector('a[href="#"].menu-btn.btn-left'); // Select the Layanan Publik button
-    const closeBtn = document.querySelector('.close-modal');
+    // Helper function to setup modal interactions
+    function setupModal(modalId, buttonSelector) {
+        const modal = document.getElementById(modalId);
+        const btn = document.querySelector(buttonSelector);
+        const closeBtn = modal ? modal.querySelector('.close-modal') : null;
 
-    // Check if elements exist to avoid errors
-    if (modal && btn && closeBtn) {
+        if (!modal || !btn || !closeBtn) {
+            console.error(`Modal ${modalId} elements not found`);
+            return;
+        }
+
         // Open modal
         btn.addEventListener('click', function (e) {
-            e.preventDefault(); // Prevent default anchor behavior
+            e.preventDefault();
             modal.style.display = 'flex';
-            // Slight delay to allow display:flex to apply before opacity transition
             setTimeout(() => {
                 modal.classList.add('show');
             }, 10);
@@ -21,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
             modal.classList.remove('show');
             setTimeout(() => {
                 modal.style.display = 'none';
-            }, 300); // Wait for transition to finish
+            }, 300);
         });
 
-        // Close modal when clicking outside
-        window.addEventListener('click', function (e) {
+        // Close modal when clicking outside modal-content
+        modal.addEventListener('click', function (e) {
             if (e.target === modal) {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -33,9 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 300);
             }
         });
-    } else {
-        console.error('Modal elements not found');
     }
+
+    // Setup modals
+    setupModal('publicModal', 'a[href="#"].menu-btn.btn-left');
+    setupModal('admModal', 'a.menu-btn.btn-top');
 
     // Pengaduan Modal
     const pengaduanModal = document.getElementById('pengaduanModal');

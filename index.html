@@ -54,10 +54,10 @@
         <div class="central-button-container" style="pointer-events: auto;">
             <div class="diamond-menu-area">
                 <!-- Hidden Menu Buttons -->
-                <a href="#" class="menu-btn btn-top">
+                <a href="#" class="menu-btn btn-top" id="administrasi-pemerintah">
                     <img src="./assets/img/ADM Pemerintah Button 1.png" alt="ADM Pemerintah" class="img-fluid">
                 </a>
-                <a href="#" class="menu-btn btn-left">
+                <a href="#" class="menu-btn btn-left" id="layanan-publik">
                     <img src="./assets/img/Layanan Publik Button 1.png" alt="Layanan Publik" class="img-fluid">
                 </a>
                 <a href="#" class="menu-btn btn-right">
@@ -108,7 +108,7 @@
         </button>
     </div>
 
-    <!-- ADM Pemerintah Modal -->
+    <!-- Layanan Publik Modal -->
     <div id="publicModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-modal">
@@ -235,6 +235,112 @@
         </div>
     </div>
 
+    <!-- ADM Pemerintah Modal - Layanan Administrasi Pemerintah -->
+    <div id="admModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content adm-modal-content">
+            <button class="close-modal btn btn-xs btn-danger px-3" style="top: 10px; right: 10px;">
+                <i class="bi bi-x text-white"></i>
+            </button>
+            <div class="adm-modal-wrapper">
+                <!-- Left Side: Logo & Login Options -->
+                <div class="adm-left-panel justify-content-center align-items-center">
+                    <div class="adm-login-options">
+                        <div class="adm-logo text-center">
+                            <img src="./assets/img/nunukan-1.png" alt="Nunukan Satu" class="img-fluid">
+                        </div>
+                        <a href="login.html" class="adm-btn-login adm-btn-myasn">
+                            <i class="bi bi-person-check"></i>
+                            <span>Masuk Dengan MyAsn</span>
+                        </a>
+                        <a href="#" class="adm-btn-login adm-btn-email">
+                            <i class="bi bi-envelope"></i>
+                            <span>Mail Dinas @nunukankab.go.id</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Services List -->
+                <div class="adm-right-panel">
+                    <!-- Layanan Naskah Dinas & Kesehatan -->
+                    <div class="adm-service-row">
+                        <div class="adm-service-label">
+                            <p>Layanan naskah dinas<br />dan kesehatan</p>
+                        </div>
+                        <div class="adm-service-icons">
+                            <div class="adm-icon-item"><img src="./assets/img/tndd.png" alt="TNDD"></div>
+                            <div class="adm-icon-item"><img src="./assets/img/srikandi.png" alt="Srikandi"></div>
+                            <div class="adm-icon-item"><img src="./assets/img/sirapel.png" alt="Sirapel"></div>
+                        </div>
+                    </div>
+                    <hr class="adm-divider">
+
+                    <!-- Layanan Manajemen Kepegawaian -->
+                    <div class="adm-service-row">
+                        <div class="adm-service-label">
+                            <p>Layanan Manajemen<br />Kepegawaian</p>
+                        </div>
+                        <div class="adm-service-icons">
+                            <div class="adm-icon-item"><img src="./assets/img/bkn.png" alt="BKN"></div>
+                            <div class="adm-icon-item"><img src="./assets/img/eanjab.png" alt="eANJAB"></div>
+                        </div>
+                    </div>
+                    <hr class="adm-divider">
+
+                    <!-- Layanan Manajemen Perencanaan & Anggaran -->
+                    <div class="adm-service-row">
+                        <div class="adm-service-label">
+                            <p>Layanan Manajemen Perencanaan dan Anggaran</p>
+                        </div>
+                        <div class="adm-service-icons">
+                            <div class="adm-icon-item"><img src="./assets/img/sipecel.png" alt="SiPecel"></div>
+                            <div class="adm-icon-item"><img src="./assets/img/sipd.png" alt="SIPD"></div>
+                        </div>
+                    </div>
+                    <hr class="adm-divider">
+
+                    <!-- Layanan Manajemen Keuangan -->
+                    <div class="adm-service-row">
+                        <div class="adm-service-label">
+                            <p>Layanan Manajemen<br />Keuangan</p>
+                        </div>
+                        <div class="adm-service-icons">
+                            <div class="adm-icon-item"><img src="./assets/img/fmis.png" alt="FMIS"></div>
+                        </div>
+                    </div>
+                    <hr class="adm-divider">
+
+                    <!-- Layanan Manajemen Kinerja -->
+                    <div class="adm-service-row">
+                        <div class="adm-service-label">
+                            <p>Layanan Manajemen<br />Kinerja</p>
+                        </div>
+                        <div class="adm-service-icons">
+                            <div class="adm-icon-item"><img src="./assets/img/epresence.png" alt="ePresence"></div>
+                            <div class="adm-icon-item"><img src="./assets/img/simanja.png" alt="Simanja"></div>
+                            <div class="adm-icon-item"><img src="./assets/img/sepakat.png" alt="Sepakat"></div>
+                        </div>
+                    </div>
+                    <hr class="adm-divider">
+
+                    <!-- Coming Soon -->
+                    <div class="adm-coming-soon">
+                        <h4>Coming Soon:</h4>
+                        <div class="adm-upcoming-items">
+                            <div class="adm-upcoming-item">
+                                <img src="./assets/img/tndd.png" alt="TNDD">
+                                <p>Fitur Surat Perintah Perjalanan Dinas</p>
+                            </div>
+                            <div class="adm-upcoming-item">
+                                <img src="./assets/img/sirapel.png" alt="Sirapel">
+                                <p>Fitur Notulensi Full Record</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Pengaduan Popup -->
     <div id="pengaduanPopup" class="pengaduan-popup">
         <div class="pengaduan-options">
@@ -245,7 +351,7 @@
             </div>
             <div class="pengaduan-option">
                 <h6 class="option-title">
-                    <a href="https://satpolpp.nunukankab.go.id/"  target="_blank">SILAPDAT</a>
+                    <a href="https://satpolpp.nunukankab.go.id/" target="_blank">SILAPDAT</a>
                 </h6>
             </div>
             <div class="pengaduan-option">
@@ -255,8 +361,9 @@
             </div>
             <div class="pengaduan-option">
                 <h6 class="option-title">
-                    <a href="https://forms.zohopublic.com/inspektoratnunukan1/form/PELAYANANKONSULTASI/formperma/zRe1jeiELo69ESPH80F4dfanVC72mD6XQS7BuBkNFY4" target="_blank">Pelayanan Konsultasi</a>
-                </h6> 
+                    <a href="https://forms.zohopublic.com/inspektoratnunukan1/form/PELAYANANKONSULTASI/formperma/zRe1jeiELo69ESPH80F4dfanVC72mD6XQS7BuBkNFY4"
+                        target="_blank">Pelayanan Konsultasi</a>
+                </h6>
             </div>
         </div>
     </div>

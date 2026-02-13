@@ -578,3 +578,226 @@ footer {
         max-width: 320px;
     }
 }
+
+/* ADM Pemerintah Modal Styles */
+.adm-modal-content {
+    width: 1200px !important;
+    height: 780px !important;
+    background: linear-gradient(222.65deg, #D32F2F 0%, #7F1C1C 100.61%) !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: stretch;
+}
+
+.adm-modal-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.adm-left-panel {
+    width: 35%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,245,245,0.9) 100%);
+    background-image: url('assets/img/bg-nunukansatu.jpg');
+    border-radius: 12px 0 0 24px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.adm-logo {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.adm-logo img {
+    width: 100%;
+}
+
+.adm-login-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.adm-btn-login {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #D32F2F;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 345px;
+}
+
+.adm-btn-login i {
+    font-size: 24px;
+}
+
+.adm-btn-myasn {
+    background-color: #D32F2F;
+    color: white;
+}
+
+.adm-btn-myasn:hover {
+    background-color: #b71c1c;
+    color: white;
+}
+
+.adm-btn-email {
+    background-color: #F5F5F5;
+    color: #D32F2F;
+}
+
+.adm-btn-email:hover {
+    background-color: #E0E0E0;
+}
+
+.adm-right-panel {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    color: #F5F5F5;
+}
+
+.adm-service-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 12px 0;
+}
+
+.adm-service-label {
+    flex: 0 0 200px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: normal;
+    white-space: pre-wrap;
+}
+
+.adm-service-label p {
+    margin: 0;
+}
+
+.adm-service-icons {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.adm-icon-item {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
+}
+
+.adm-icon-item:hover {
+    transform: scale(1.1);
+}
+
+.adm-icon-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.adm-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    margin: 12px 0;
+}
+
+.adm-coming-soon {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.adm-coming-soon h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin: 0 0 16px 0;
+    color: #F5F5F5;
+}
+
+.adm-upcoming-items {
+    display: flex;
+    gap: 32px;
+}
+
+.adm-upcoming-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.adm-upcoming-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.adm-upcoming-item p {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #F5F5F5;
+}
+
+@media (max-width: 992px) {
+    .adm-modal-content {
+        width: 90% !important;
+        height: auto !important;
+        flex-direction: column;
+    }
+
+    .adm-left-panel {
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+        padding: 30px 20px;
+    }
+
+    .adm-right-panel {
+        width: 100%;
+        border-radius: 0 0 12px 12px;
+        max-height: 400px;
+        padding: 30px 20px;
+    }
+
+    .adm-service-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .adm-service-icons {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
