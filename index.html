@@ -110,123 +110,181 @@
 
     <!-- Layanan Publik Modal -->
     <div id="publicModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-modal">
-                <button class="btn btn-sm btn-danger px-3">
-                    <i class="bi bi-house-dash"></i>
-                    <span class="ml-5">Keluar</span>
+        <div class="modal-content modal-public-services">
+            <div class="modal-header-public">
+                <div class="header-title-section">
+                    <h2>LAYANAN PUBLIK</h2>
+                    <div class="header-underline"></div>
+                </div>
+                <button class="close-modal btn btn-sm btn-danger px-3">
+                    <i class="bi bi-x"></i>
+                    <span>Keluar</span>
                 </button>
-            </span>
-            <div class="modal-header">
-                <h2>LAYANAN PUBLIK</h2>
             </div>
-            <div class="modal-body">
-                <div class="service-grid-public">
+            <div class="modal-body-public">
+                <div class="service-grid-new">
                     <!-- Row 1 -->
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Pengaduan</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="public-services/silapdat.html">
-                                        <img src="./assets/img/icon-silapdat.png" alt="SILAPDAT">
-                                    </a>
-                                </div>
-                                <div class="service-icon">
-                                    <a href="./public-services/lapor.html">
+                    <!-- Card 1: Layanan Pengaduan -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Pengaduan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Pengaduan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/lapor.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-lapor.png" alt="LAPOR!">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">LAPOR!</span>
+                                </a>
+                                <a href="public-services/silapdat.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-silapdat.png" alt="SILAPDAT">
+                                    </span>
+                                    <span class="btn-text">SILAPDAT</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Hukum</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="./public-services/jdih.html">
+
+                    <!-- Card 2: Layanan Hukum -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Hukum" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Hukum</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/jdih.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-jdih.png" alt="JDIH">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">JDIH</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Sektor Pendidikan</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="./public-services/dapodik.html">
+
+                    <!-- Card 3: Layanan Sektor Pendidikan -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Sektor Pendidikan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Sektor<br>Pendidikan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/dapodik.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-dapodik.png" alt="DAPODIK">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">DAPODIK</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Geospasial</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="./public-services/gis.html">
+
+                    <!-- Card 4: Layanan Geospasial -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Geospasial" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Geospasial</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/gis.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-gis-nunukan.png" alt="GIS Kabupaten Nunukan">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">GIS KAB. NUNUKAN</span>
+                                </a>
                             </div>
                         </div>
                     </div>
+
                     <!-- Row 2 -->
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Informasi & Dokumentasi</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="./public-services/ppid.html">
+                    <!-- Card 5: Layanan Informasi & Dokumentasi -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Informasi & Dokumentasi" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Informasi<br>& Dokumentasi</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/ppid.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-ppid.png" alt="PPID">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">PPID</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Kependudukan</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="./public-services/sipakrt.html">
+
+                    <!-- Card 6: Layanan Kependudukan -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Kependudukan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Kependudukan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/sipakrt.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-sipakrt.png" alt="SIPAKRT">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">SIPAKRT</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Pajak Retribusi</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="./public-services/bth.html">
+
+                    <!-- Card 7: Layanan Pajak Retribusi -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Pajak Retribusi" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Pajak<br>Retribusi</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/bth.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-bth.png" alt="BTH">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">BTH</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="service-category">
-                        <div class="service-card">
-                            <div class="service-title">Layanan Berusaha</div>
-                            <div class="service-icons">
-                                <div class="service-icon">
-                                    <a href="./public-services/oss.html">
+
+                    <!-- Card 8: Layanan Berusaha -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Berusaha" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Berusaha</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/oss.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-oss.png" alt="OSS">
-                                    </a>
-                                </div>
-                                <div class="service-icon">
-                                    <a href="./public-services/sempadan.html">
+                                    </span>
+                                    <span class="btn-text">OSS</span>
+                                </a>
+                                <a href="./public-services/sempadan.html" class="service-btn">
+                                    <span class="btn-icon">
                                         <img src="./assets/img/icon-sempadan.png" alt="SEMPADAN">
-                                    </a>
-                                </div>
+                                    </span>
+                                    <span class="btn-text">SEMPADAN</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -238,100 +296,115 @@
     <!-- ADM Pemerintah Modal - Layanan Administrasi Pemerintah -->
     <div id="admModal" class="modal-overlay" aria-hidden="true">
         <div class="modal-content adm-modal-content">
-            <button class="close-modal btn btn-xs btn-danger px-3" style="top: 10px; right: 10px;">
-                <i class="bi bi-x text-white"></i>
+            <button class="close-modal btn btn-sm btn-danger" style="position: absolute; top: 15px; right: 15px; z-index: 10;">
+                <i class="bi bi-x"></i>
+                <span>Keluar</span>
             </button>
             <div class="adm-modal-wrapper">
                 <!-- Left Side: Logo & Login Options -->
-                <div class="adm-left-panel justify-content-center align-items-center">
+                <div class="adm-left-panel">
                     <div class="adm-login-options">
-                        <div class="adm-logo text-center">
-                            <img src="./assets/img/nunukan-1.png" alt="Nunukan Satu" class="img-fluid">
+                        <div class="adm-logo-container">
+                            <img src="./assets/img/nunukan-1.png" alt="Nunukan Satu Logo" class="adm-logo-img">
                         </div>
                         <a href="login.html" class="adm-btn-login adm-btn-myasn">
-                            <i class="bi bi-person-check"></i>
+                            <svg class="adm-btn-icon" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="white"/>
+                            </svg>
                             <span>Masuk Dengan MyAsn</span>
                         </a>
-                        <a href="#" class="adm-btn-login adm-btn-email">
-                            <i class="bi bi-envelope"></i>
+                        <div class="adm-btn-login adm-btn-email">
+                            <svg class="adm-btn-icon" viewBox="0 0 24 24" width="24" height="24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#D32F2F"/>
+                            </svg>
                             <span>Mail Dinas @nunukankab.go.id</span>
-                        </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Right Side: Services List -->
                 <div class="adm-right-panel">
                     <!-- Layanan Naskah Dinas & Kesehatan -->
-                    <div class="adm-service-row">
-                        <div class="adm-service-label">
-                            <p>Layanan naskah dinas<br />dan kesehatan</p>
+                    <div class="adm-service-section">
+                        <div class="adm-service-row">
+                            <div class="adm-service-label">
+                                <p>Layanan naskah dinas<br>dan kesehatan</p>
+                            </div>
+                            <div class="adm-service-icons">
+                                <div class="adm-icon-item"><img src="./assets/img/tndd.png" alt="TNDD"></div>
+                                <div class="adm-icon-item"><img src="./assets/img/srikandi.png" alt="SRIKANDI"></div>
+                                <div class="adm-icon-item"><img src="./assets/img/sirapel.png" alt="SIRAPEL"></div>
+                            </div>
                         </div>
-                        <div class="adm-service-icons">
-                            <div class="adm-icon-item"><img src="./assets/img/tndd.png" alt="TNDD"></div>
-                            <div class="adm-icon-item"><img src="./assets/img/srikandi.png" alt="Srikandi"></div>
-                            <div class="adm-icon-item"><img src="./assets/img/sirapel.png" alt="Sirapel"></div>
-                        </div>
+                        <div class="adm-divider"></div>
                     </div>
-                    <hr class="adm-divider">
 
                     <!-- Layanan Manajemen Kepegawaian -->
-                    <div class="adm-service-row">
-                        <div class="adm-service-label">
-                            <p>Layanan Manajemen<br />Kepegawaian</p>
+                    <div class="adm-service-section">
+                        <div class="adm-service-row">
+                            <div class="adm-service-label">
+                                <p>Layanan Manajemen<br>Kepegawaian</p>
+                            </div>
+                            <div class="adm-service-icons">
+                                <div class="adm-icon-item"><img src="./assets/img/bkn.png" alt="BKN"></div>
+                                <div class="adm-icon-item"><img src="./assets/img/eanjab.png" alt="eANJAB"></div>
+                            </div>
                         </div>
-                        <div class="adm-service-icons">
-                            <div class="adm-icon-item"><img src="./assets/img/bkn.png" alt="BKN"></div>
-                            <div class="adm-icon-item"><img src="./assets/img/eanjab.png" alt="eANJAB"></div>
-                        </div>
+                        <div class="adm-divider"></div>
                     </div>
-                    <hr class="adm-divider">
 
                     <!-- Layanan Manajemen Perencanaan & Anggaran -->
-                    <div class="adm-service-row">
-                        <div class="adm-service-label">
-                            <p>Layanan Manajemen Perencanaan dan Anggaran</p>
+                    <div class="adm-service-section">
+                        <div class="adm-service-row">
+                            <div class="adm-service-label">
+                                <p>Layanan Manajemen<br>Perencanaan dan Anggaran</p>
+                            </div>
+                            <div class="adm-service-icons">
+                                <div class="adm-icon-item"><img src="./assets/img/sipecel.png" alt="SIPECEL"></div>
+                                <div class="adm-icon-item"><img src="./assets/img/sipd.png" alt="SIPD"></div>
+                            </div>
                         </div>
-                        <div class="adm-service-icons">
-                            <div class="adm-icon-item"><img src="./assets/img/sipecel.png" alt="SiPecel"></div>
-                            <div class="adm-icon-item"><img src="./assets/img/sipd.png" alt="SIPD"></div>
-                        </div>
+                        <div class="adm-divider"></div>
                     </div>
-                    <hr class="adm-divider">
 
                     <!-- Layanan Manajemen Keuangan -->
-                    <div class="adm-service-row">
-                        <div class="adm-service-label">
-                            <p>Layanan Manajemen<br />Keuangan</p>
+                    <div class="adm-service-section">
+                        <div class="adm-service-row">
+                            <div class="adm-service-label">
+                                <p>Layanan Manajemen<br>Keuangan</p>
+                            </div>
+                            <div class="adm-service-icons">
+                                <div class="adm-icon-item"><img src="./assets/img/fmis.png" alt="FMIS"></div>
+                            </div>
                         </div>
-                        <div class="adm-service-icons">
-                            <div class="adm-icon-item"><img src="./assets/img/fmis.png" alt="FMIS"></div>
-                        </div>
+                        <div class="adm-divider"></div>
                     </div>
-                    <hr class="adm-divider">
 
                     <!-- Layanan Manajemen Kinerja -->
-                    <div class="adm-service-row">
-                        <div class="adm-service-label">
-                            <p>Layanan Manajemen<br />Kinerja</p>
+                    <div class="adm-service-section">
+                        <div class="adm-service-row">
+                            <div class="adm-service-label">
+                                <p>Layanan Manajemen<br>Kinerja</p>
+                            </div>
+                            <div class="adm-service-icons">
+                                <div class="adm-icon-item"><img src="./assets/img/epresence.png" alt="e-Presence"></div>
+                                <div class="adm-icon-item"><img src="./assets/img/simanja.png" alt="SIMANJA"></div>
+                                <div class="adm-icon-item"><img src="./assets/img/sepakat.png" alt="SEPAKAT"></div>
+                            </div>
                         </div>
-                        <div class="adm-service-icons">
-                            <div class="adm-icon-item"><img src="./assets/img/epresence.png" alt="ePresence"></div>
-                            <div class="adm-icon-item"><img src="./assets/img/simanja.png" alt="Simanja"></div>
-                            <div class="adm-icon-item"><img src="./assets/img/sepakat.png" alt="Sepakat"></div>
-                        </div>
+                        <div class="adm-divider"></div>
                     </div>
-                    <hr class="adm-divider">
 
                     <!-- Coming Soon -->
                     <div class="adm-coming-soon">
-                        <h4>Coming Soon:</h4>
+                        <h5>Coming Soon:</h5>
                         <div class="adm-upcoming-items">
                             <div class="adm-upcoming-item">
                                 <img src="./assets/img/tndd.png" alt="TNDD">
                                 <p>Fitur Surat Perintah Perjalanan Dinas</p>
                             </div>
                             <div class="adm-upcoming-item">
-                                <img src="./assets/img/sirapel.png" alt="Sirapel">
+                                <img src="./assets/img/sirapel.png" alt="SIRAPEL">
                                 <p>Fitur Notulensi Full Record</p>
                             </div>
                         </div>

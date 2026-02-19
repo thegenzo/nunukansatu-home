@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nunukan Satu - Kantor Daring</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <!-- Main Background -->
+    <div class="main-background"></div>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar fixed-top mt-4">
+        <div class="container d-flex justify-content-center">
+            <div
+                class="floating-nav bg-white rounded-pill px-4 py-2 shadow-sm d-flex align-items-center justify-content-between">
+                <!-- Logo Area -->
+                <div class="d-flex align-items-center gap-2">
+                    <img src="./assets/img/Nunukansatu Logo1 2.png" alt="Nunukan Satu Logo" height="40">
+                </div>
+
+                <!-- Search Button -->
+                <div class="ms-5">
+                    <button class="btn btn-primary-red rounded-3 px-4 py-2 d-flex align-items-center gap-2">
+                        <i class="bi bi-search"></i>
+                        <span>Search</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content / Central Button -->
+    <main class="container-fluid d-flex justify-content-center align-items-center"
+        style="height: 100vh; pointer-events: none;">
+        <!-- Central Diamond Button -->
+        <div class="central-button-container" style="pointer-events: auto;">
+            <div class="diamond-menu-area">
+                <!-- Hidden Menu Buttons -->
+                <a href="#" class="menu-btn btn-top" id="administrasi-pemerintah">
+                    <img src="./assets/img/ADM Pemerintah Button 1.png" alt="ADM Pemerintah" class="img-fluid">
+                </a>
+                <a href="#" class="menu-btn btn-left" id="layanan-publik">
+                    <img src="./assets/img/Layanan Publik Button 1.png" alt="Layanan Publik" class="img-fluid">
+                </a>
+                <a href="#" class="menu-btn btn-right">
+                    <img src="./assets/img/Mall Data dan Informasi Button 1.png" alt="Mall Data dan Informasi"
+                        class="img-fluid">
+                </a>
+
+                <!-- Main Central Button -->
+                <a href="#" class="btn-main-diamond d-block text-decoration-none">
+                    <img src="./assets/img/Main Button Flat 1.png" alt="Nunukan Satu" class="img-fluid main-logo-img">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="fixed-bottom bg-white py-3 border-top">
+        <div class="container-fluid px-5 d-flex justify-content-between align-items-center">
+            <!-- Left: Logo/Icon -->
+            <div class="d-flex align-items-center gap-2 footer-logo-section">
+                <img src="./assets/img/Footer 3.png" alt="Nunukan Satu Footer Logo" height="40">
+                <img src="./assets/img/Nunukansatu Logo1 2.png" alt="Nunukan Satu Logo" height="40">
+            </div>
+
+            <!-- Center: Copyright -->
+            <div class="text-center">
+                <small class="fw-bold text-uppercase" style="font-size: 0.7rem; letter-spacing: 1px;">&copy; 2026
+                    PEMERINTAH KABUPATEN NUNUKAN. ALL RIGHTS RESERVED.</small>
+            </div>
+
+            <!-- Right: Pengaduan Button -->
+            <div class="d-flex">
+                <button class="btn btn-outline-danger px-4 py-1 d-flex align-items-center gap-2"
+                    style="border-radius: 10px;">
+                    <i class="bi bi-chevron-up"></i>
+                    <span>Pengaduan</span>
+                </button>
+                <img src="./assets/img/Footer 2.png" alt="Nunukan Satu Footer Logo" height="40">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Live Chat Button -->
+    <div class="position-fixed bottom-0 end-0 m-4 mb-5 pb-4" style="z-index: 1050;">
+        <button class="btn btn-primary-red rounded-circle shadow-lg d-flex align-items-center justify-content-center"
+            style="width: 60px; height: 60px;">
+            <i class="bi bi-headset fs-3"></i>
+        </button>
+    </div>
+
+    <!-- Layanan Publik Modal -->
+    <div id="publicModal" class="modal-overlay">
+        <div class="modal-content modal-public-services">
+            <div class="modal-header-public">
+                <div class="header-title-section">
+                    <h2>LAYANAN PUBLIK</h2>
+                    <div class="header-underline"></div>
+                </div>
+                <button class="close-modal btn btn-sm btn-danger px-3">
+                    <i class="bi bi-x"></i>
+                    <span>Keluar</span>
+                </button>
+            </div>
+            <div class="modal-body-public">
+                <div class="service-grid-new">
+                    <!-- Row 1 -->
+                    <!-- Card 1: Layanan Pengaduan -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Pengaduan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Pengaduan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/lapor.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-lapor.png" alt="LAPOR!">
+                                    </span>
+                                    <span class="btn-text">LAPOR!</span>
+                                </a>
+                                <a href="public-services/silapdat.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-silapdat.png" alt="SILAPDAT">
+                                    </span>
+                                    <span class="btn-text">SILAPDAT</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Layanan Hukum -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Hukum" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Hukum</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/jdih.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-jdih.png" alt="JDIH">
+                                    </span>
+                                    <span class="btn-text">JDIH</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Layanan Sektor Pendidikan -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Sektor Pendidikan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Sektor<br>Pendidikan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/dapodik.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-dapodik.png" alt="DAPODIK">
+                                    </span>
+                                    <span class="btn-text">DAPODIK</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Layanan Geospasial -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Geospasial" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Geospasial</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/gis.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-gis-nunukan.png" alt="GIS Kabupaten Nunukan">
+                                    </span>
+                                    <span class="btn-text">GIS KAB. NUNUKAN</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <!-- Card 5: Layanan Informasi & Dokumentasi -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Informasi & Dokumentasi" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Informasi<br>& Dokumentasi</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/ppid.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-ppid.png" alt="PPID">
+                                    </span>
+                                    <span class="btn-text">PPID</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Layanan Kependudukan -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Kependudukan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Kependudukan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/sipakrt.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-sipakrt.png" alt="SIPAKRT">
+                                    </span>
+                                    <span class="btn-text">SIPAKRT</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Layanan Pajak Retribusi -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Pajak Retribusi" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Pajak<br>Retribusi</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/bth.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-bth.png" alt="BTH">
+                                    </span>
+                                    <span class="btn-text">BTH</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Layanan Berusaha -->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Berusaha" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Berusaha</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/oss.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-oss.png" alt="OSS">
+                                    </span>
+                                    <span class="btn-text">OSS</span>
+                                </a>
+                                <a href="./public-services/sempadan.html" class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-sempadan.png" alt="SEMPADAN">
+                                    </span>
+                                    <span class="btn-text">SEMPADAN</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADM Pemerintah Modal - Layanan Administrasi Pemerintah -->
+    <div id="admModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content modal-adm-services">
+            <div class="modal-header-adm">
+                <div class="header-title-section">
+                    <h2>LAYANAN ADMINISTRASI PEMERINTAH</h2>
+                    <div class="header-underline"></div>
+                </div>
+                <button class="close-modal btn btn-sm btn-danger px-3">
+                    <i class="bi bi-x"></i>
+                    <span>Keluar</span>
+                </button>
+            </div>
+            <div class="modal-body-adm">
+                <div class="service-grid-adm">
+                    <!-- Card 1: Layanan Naskah Dinas & Kearsipan -->
+                    <div class="service-card-adm">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Naskah Dinas & Kearsipan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Naskah Dinas & Kearsipan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/tndd.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/tndd.png" alt="TNDD">
+                                    </div>
+                                    <span class="btn-text">TATA NASKAH DINAS DIGITAL</span>
+                                </a>
+                                <a href="./public-services/srikandi.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/srikandi.png" alt="SRIKANDI">
+                                    </div>
+                                    <span class="btn-text">SRIKANDI</span>
+                                </a>
+                                <a href="./public-services/sirapel.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/sirapel.png" alt="SIRAPEL">
+                                    </div>
+                                    <span class="btn-text">SIRAPEL</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Layanan Manajemen Kepegawaian -->
+                    <div class="service-card-adm">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Manajemen Kepegawaian" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Manajemen Kepegawaian</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/bkn.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/bkn.png" alt="BKN">
+                                    </div>
+                                    <span class="btn-text">BKN</span>
+                                </a>
+                                <a href="./public-services/anjab.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/eanjab.png" alt="ANJAB">
+                                    </div>
+                                    <span class="btn-text">ANJAB</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Layanan Manajemen Perencanaan & Anggaran -->
+                    <div class="service-card-adm">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Manajemen Perencanaan & Anggaran" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Manajemen Perencanaan & Anggaran</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/sipecel.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/sipecel.png" alt="SIPECEL">
+                                    </div>
+                                    <span class="btn-text">SIPECEL</span>
+                                </a>
+                                <a href="./public-services/sipd.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/sipd.png" alt="SIPD">
+                                    </div>
+                                    <span class="btn-text">SIPD</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Layanan Manajemen Keuangan -->
+                    <div class="service-card-adm">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Manajemen Keuangan" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Manajemen Keuangan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/fmis.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/fmis.png" alt="FMIS">
+                                    </div>
+                                    <span class="btn-text">FMIS</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Layanan Manajemen Kinerja -->
+                    <div class="service-card-adm">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Manajemen Kinerja" class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Manajemen Kinerja</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/epresence.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/epresence.png" alt="E-PRESENCE">
+                                    </div>
+                                    <span class="btn-text">E-PRESENCE</span>
+                                </a>
+                                <a href="./public-services/simanja.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/simanja.png" alt="SIMANJA">
+                                    </div>
+                                    <span class="btn-text">SIMANJA</span>
+                                </a>
+                                <a href="./public-services/sepakat.html" class="service-btn">
+                                    <div class="btn-icon">
+                                        <img src="./assets/img/sepakat.png" alt="SEPAKAT">
+                                    </div>
+                                    <span class="btn-text">SEPAKAT</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pengaduan Popup -->
+    <div id="pengaduanPopup" class="pengaduan-popup">
+        <div class="pengaduan-options">
+            <div class="pengaduan-option">
+                <h6 class="option-title">
+                    <a href="https://lapor.go.id" target="_blank">SP4N Lapor</a>
+                </h6>
+            </div>
+            <div class="pengaduan-option">
+                <h6 class="option-title">
+                    <a href="https://satpolpp.nunukankab.go.id/" target="_blank">SILAPDAT</a>
+                </h6>
+            </div>
+            <div class="pengaduan-option">
+                <h6 class="option-title">
+                    <a href="https://wbs.nunukankab.go.id/" target="_blank">WBS</a>
+                </h6>
+            </div>
+            <div class="pengaduan-option">
+                <h6 class="option-title">
+                    <a href="https://forms.zohopublic.com/inspektoratnunukan1/form/PELAYANANKONSULTASI/formperma/zRe1jeiELo69ESPH80F4dfanVC72mD6XQS7BuBkNFY4"
+                        target="_blank">Pelayanan Konsultasi</a>
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

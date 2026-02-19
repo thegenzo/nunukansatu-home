@@ -285,37 +285,262 @@ footer {
     transform: scale(1);
 }
 
+/* New Public Services Modal Styles */
+.modal-public-services {
+    width: 1200px !important;
+    height: 800px !important;
+    background-color: #f5f5f5 !important;
+    background-image: none !important;
+    padding: 40px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 12px !important;
+}
+
+.modal-header-public {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.header-title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.header-title-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--primary-red);
+    margin: 0;
+    letter-spacing: 0;
+}
+
+.header-underline {
+    width: 34px;
+    height: 2.816px;
+    background-color: #cf1b3b;
+}
+
+.modal-body-public {
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.service-grid-new {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 19px;
+    padding: 0;
+}
+
+.service-card-new {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-image-section {
+    position: relative;
+    width: 100%;
+    height: 164px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.card-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
+    color: #f5f5f5;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.48px;
+}
+
+.card-content-section {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.service-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.service-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background-color: var(--primary-red);
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.service-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.btn-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.btn-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 18px;
+    color: #f5f5f5;
+    white-space: nowrap;
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .close-modal {
     color: #aaa;
-    float: right;
     font-size: 28px;
     font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
     cursor: pointer;
     transition: color 0.2s;
     z-index: 10;
+    background-color: var(--primary-red) !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
 }
 
 .close-modal:hover,
 .close-modal:focus {
-    color: var(--primary-red);
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
+    background-color: #b71c1c !important;
 }
 
-.modal-header {
-    border-bottom: none;
-    /* Handled by h2 style */
+.close-modal span {
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 0;
 }
 
-.modal-header h2 {
-    margin-top: 0;
-    color: var(--primary-red);
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+.close-modal i {
+    color: white;
+    font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+    .modal-public-services {
+        width: 90% !important;
+        height: auto !important;
+    }
+
+    .service-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        line-height: 28px;
+        padding: 16px;
+    }
+
+    .card-image-section {
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-public-services {
+        width: 95% !important;
+        padding: 20px !important;
+        height: auto !important;
+    }
+
+    .header-title-section h2 {
+        font-size: 32px;
+    }
+
+    .service-grid-new {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 12px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .card-image-section {
+        height: 120px;
+    }
 }
 
 .modal-body {
@@ -325,7 +550,7 @@ footer {
     max-height: 700px;
 }
 
-/* Service Grid Styles */
+/* Service Grid Styles - Reserved for future use */
 .service-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -366,140 +591,6 @@ footer {
     font-size: 1.1rem;
     text-align: center;
     color: var(--text-color);
-}
-
-/* New Public Services Grid */
-.service-grid-public {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 42px;
-    padding: 20px 40px;
-    justify-items: center;
-    overflow-y: auto;
-    max-height: 700px; /* Allow scrolling if content exceeds */
-}
-
-.service-category {
-    width: 100%;
-    max-width: 260px;
-}
-
-.service-card {
-    width: 100%;
-    height: 300px;
-    background-image: url('./assets/img/frame-74.png'); /* Using existing background, can be replaced */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 25px 20px;
-    position: relative;
-    transition: transform 0.2s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-.service-title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 800;
-    font-size: 24px;
-    line-height: 32px;
-    color: #f3f3f3;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-.service-icons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.service-icon {
-    width: 100px;
-    height: 100px;
-    background-color: #f5f5f5;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.service-icon img {
-    width: 100px;
-    heightt: 100px;
-}
-
-@media (max-width: 992px) {
-    .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .service-grid-public {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .service-category {
-        max-width: 100%;
-    }
-
-    .service-card {
-        height: 250px;
-        padding: 20px 15px;
-    }
-
-    .service-title {
-        font-size: 20px;
-        line-height: 28px;
-    }
-
-    .service-icon {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-@media (max-width: 576px) {
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-grid-public {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-
-    .service-card {
-        height: 200px;
-        padding: 15px 10px;
-    }
-
-    .service-title {
-        font-size: 18px;
-        line-height: 24px;
-    }
-
-    .service-icon {
-        width: 60px;
-        height: 60px;
-    }
 }
 
 /* Pengaduan Modal Styles */
@@ -581,13 +672,15 @@ footer {
 
 /* ADM Pemerintah Modal Styles */
 .adm-modal-content {
-    width: 1200px !important;
-    height: 780px !important;
-    background: linear-gradient(222.65deg, #D32F2F 0%, #7F1C1C 100.61%) !important;
+    width: 1298px !important;
+    height: 732px !important;
+    background: none !important;
     padding: 0 !important;
-    border-radius: 0 !important;
+    border-radius: 12px !important;
     display: flex !important;
     align-items: stretch;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
 .adm-modal-wrapper {
@@ -598,30 +691,33 @@ footer {
 
 .adm-left-panel {
     width: 35%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,245,245,0.9) 100%);
-    background-image: url('assets/img/bg-nunukansatu.jpg');
-    border-radius: 12px 0 0 24px;
+    background: white;
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.adm-logo {
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-.adm-logo img {
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px 0 24px 12px;
 }
 
 .adm-login-options {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     width: 100%;
+    max-width: 345px;
+    align-items: center;
+}
+
+.adm-logo-container {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.adm-logo-img {
+    width: 100%;
+    height: auto;
+    max-width: 280px;
 }
 
 .adm-btn-login {
@@ -637,11 +733,13 @@ footer {
     font-size: 16px;
     transition: all 0.3s ease;
     width: 100%;
-    max-width: 345px;
+    cursor: pointer;
 }
 
-.adm-btn-login i {
-    font-size: 24px;
+.adm-btn-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
 }
 
 .adm-btn-myasn {
@@ -661,30 +759,38 @@ footer {
 
 .adm-btn-email:hover {
     background-color: #E0E0E0;
+    color: #D32F2F;
 }
 
 .adm-right-panel {
     flex: 1;
-    padding: 40px;
+    background: linear-gradient(222.65deg, #D32F2F 0%, #7F1C1C 100.61%);
+    padding: 49px 86px;
     overflow-y: auto;
     color: #F5F5F5;
+}
+
+.adm-service-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .adm-service-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding: 12px 0;
+    gap: 32px;
 }
 
 .adm-service-label {
-    flex: 0 0 200px;
+    flex: 0 0 auto;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: normal;
-    white-space: pre-wrap;
+    line-height: 24px;
+    color: #F5F5F5;
+    min-width: 200px;
 }
 
 .adm-service-label p {
@@ -708,8 +814,9 @@ footer {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
+    flex-shrink: 0;
 }
 
 .adm-icon-item:hover {
@@ -720,24 +827,27 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .adm-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
     border: none;
-    border-top: 1px solid rgba(255,255,255,0.3);
     margin: 12px 0;
 }
 
 .adm-coming-soon {
     margin-top: 24px;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.adm-coming-soon h4 {
+.adm-coming-soon h5 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 800;
-    font-size: 24px;
+    font-weight: 700;
+    font-size: 18px;
     margin: 0 0 16px 0;
     color: #F5F5F5;
 }
@@ -745,6 +855,7 @@ footer {
 .adm-upcoming-items {
     display: flex;
     gap: 32px;
+    flex-wrap: wrap;
 }
 
 .adm-upcoming-item {
@@ -754,19 +865,20 @@ footer {
 }
 
 .adm-upcoming-item img {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: white;
     padding: 4px;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .adm-upcoming-item p {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: 14px;
     color: #F5F5F5;
 }
 
@@ -775,6 +887,7 @@ footer {
         width: 90% !important;
         height: auto !important;
         flex-direction: column;
+        border-radius: 12px !important;
     }
 
     .adm-left-panel {
@@ -799,5 +912,95 @@ footer {
     .adm-service-icons {
         justify-content: flex-start;
         width: 100%;
+    }
+}
+
+/* New ADM Pemerintah Services Modal Styles */
+.modal-adm-services {
+    width: 1200px !important;
+    height: 800px !important;
+    background-color: #f5f5f5 !important;
+    background-image: none !important;
+    padding: 40px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 12px !important;
+}
+
+.modal-header-adm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.modal-body-adm {
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.service-grid-adm {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 19px;
+    padding: 0;
+}
+
+.service-card-adm {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+@media (max-width: 1200px) {
+    .modal-adm-services {
+        width: 90% !important;
+        height: auto !important;
+    }
+
+    .service-grid-adm {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .card-title {
+        font-size: 18px !important;
+        line-height: 24px !important;
+    }
+
+    .card-image-section {
+        height: 120px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-adm-services {
+        width: 95% !important;
+        height: auto !important;
+        padding: 20px !important;
+    }
+
+    .header-title-section h2 {
+        font-size: 24px !important;
+    }
+
+    .service-grid-adm {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .card-title {
+        font-size: 14px !important;
+        line-height: 18px !important;
+    }
+
+    .card-image-section {
+        height: 100px !important;
     }
 }
