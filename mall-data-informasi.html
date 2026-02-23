@@ -343,65 +343,57 @@
                 margin: 0 60px;
             }
         }
+
+        /* Iframe Container Styles */
+        .iframe-section {
+            width: 100%;
+            height: calc(100vh - 100px);
+            display: none;
+            background: #f5f5f5;
+        }
+
+        .iframe-section.active {
+            display: block;
+        }
+
+        .iframe-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .iframe-section {
+                height: calc(100vh - 130px);
+            }
+        }
     </style>
 </head>
 
 <body>
-
-    <!-- Header -->
-    <header class="mall-header">
-        <img src="./assets/img/Nunukansatu Logo1 2.png" alt="Nunukan Satu Logo" class="mall-logo">
-        <nav class="mall-nav">
-            <a href="#">Daerah</a>
-            <a href="#">Sekretariat</a>
-            <a href="#">Dinas</a>
-            <a href="#">Badan</a>
-            <a href="#">Satuan</a>
-            <a href="#">Kecamatan</a>
-            <a href="#">Kelurahan</a>
-            <a href="#">Kesehatan</a>
-        </nav>
-        <button class="mall-search-btn" title="Search">
-            <i class="bi bi-search"></i>
-        </button>
-    </header>
-
-    <!-- Main Content -->
-    <div class="mall-container">
-        <div class="mall-cards-wrapper">
-            <!-- Card 1: Sejarah -->
-            <div class="mall-card">
-                <div class="mall-card-image">
-                    <img src="./assets/img/sejarah.jpg" alt="Sejarah">
-                </div>
-                <div class="mall-card-title">Sejarah</div>
-                <div class="mall-card-pattern"></div>
-            </div>
-
-            <!-- Card 2: Eksekutif -->
-            <div class="mall-card">
-                <div class="mall-card-image">
-                    <img src="./assets/img/eksekutif.jpg" alt="Eksekutif">
-                </div>
-                <div class="mall-card-title">Eksekutif</div>
-                <div class="mall-card-pattern"></div>
-            </div>
-
-            <!-- Card 3: Legislatif -->
-            <div class="mall-card">
-                <div class="mall-card-image">
-                    <img src="./assets/img/legislatif.jpg" alt="Legislatif">
-                </div>
-                <div class="mall-card-title">Legislatif</div>
-                <div class="mall-card-pattern"></div>
-            </div>
-        </div>
+    <div id="profilDaerah" class="iframe-section active">
+        <iframe src="https://profil.nunukankab.go.id/" title="Profil Daerah Nunukan"></iframe>
     </div>
+
+    <div id="satudata" class="iframe-section">
+        <iframe src="https://satudata.nunukankab.go.id/" title="Satu Data Nunukan"></iframe>
+    </div>
+
+    <div id="berita" class="iframe-section">
+        <iframe src="https://www.berita.nunukankab.go.id/" title="Berita Nunukan"></iframe>
+    </div>
+
+    <div id="jdih" class="iframe-section">
+        <iframe src="https://jdih.nunukankab.go.id/" title="JDIH Nunukan"></iframe>
+    </div>
+
 
     <!-- Bottom Navigation -->
     <nav class="mall-bottom-nav">
         <div class="mall-logo-section">
-            <img src="./assets/img/Nunukansatu Logo1 2.png" alt="Nunukan Satu Logo">
+            <a href="index.html">
+                <img src="./assets/img/Nunukansatu Logo1 2.png" alt="Nunukan Satu Logo">
+            </a>
         </div>
 
         <div class="mall-nav-center">
@@ -415,42 +407,44 @@
             </button>
 
             <div class="mall-nav-items" id="navItemsContainer">
-                <button class="mall-action-btn active">
+                <button class="mall-action-btn active" id="btnProfilDaerah">
                     <span class="icon-circle">
                         <i class="bi bi-building"></i>
                     </span>
                     Profil Daerah
                 </button>
 
-                <button class="mall-action-btn">
+                <button class="mall-action-btn" id="btnSatuData">
                     <span class="icon-circle">
                         <i class="bi bi-server"></i>
                     </span>
                     Satu Data
                 </button>
 
-                <button class="mall-action-btn">
+                <button class="mall-action-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Fitur masih dalam tahap pengembangan" data-bs-trigger="focus">
                     <span class="icon-circle">
                         <i class="bi bi-bell"></i>
                     </span>
                     Pengumuman
                 </button>
 
-                <button class="mall-action-btn">
+                <button class="mall-action-btn" id="btnJDIH">
                     <span class="icon-circle">
                         <i class="bi bi-database"></i>
                     </span>
                     JDIH
                 </button>
 
-                <button class="mall-action-btn">
+                <button class="mall-action-btn" id="btnBerita">
                     <span class="icon-circle">
                         <i class="bi bi-newspaper"></i>
                     </span>
                     Berita
                 </button>
 
-                <button class="mall-action-btn">
+                <button class="mall-action-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Fitur masih dalam tahap pengembangan" data-bs-trigger="focus">
                     <span class="icon-circle">
                         <i class="bi bi-diagram-3"></i>
                     </span>
@@ -469,6 +463,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
             const container = document.getElementById('navItemsContainer');
             const scrollLeftBtn = document.getElementById('scrollLeftBtn');
             const scrollRightBtn = document.getElementById('scrollRightBtn');
@@ -481,6 +478,56 @@
 
                 scrollRightBtn.addEventListener('click', () => {
                     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+
+            // Iframe Section Logic
+            const btnProfilDaerah = document.getElementById('btnProfilDaerah');
+            const contentProfilDaerah = document.getElementById('profilDaerah');
+
+            const btnSatuData = document.getElementById('btnSatuData');
+            const contentSatuData = document.getElementById('satudata');
+
+            const btnBerita = document.getElementById('btnBerita');
+            const contentBerita = document.getElementById('berita');
+
+            const btnJDIH = document.getElementById('btnJDIH');
+            const contentJDIH = document.getElementById('jdih');
+
+            const allNavBtns = document.querySelectorAll('.mall-action-btn');
+            const allIframeSections = document.querySelectorAll('.iframe-section');
+
+            function switchMenu(clickedBtn, targetContent) {
+                // Remove active state from all buttons and hide all iframes
+                allNavBtns.forEach(btn => btn.classList.remove('active'));
+                allIframeSections.forEach(section => section.classList.remove('active'));
+
+                // Add active state to the current clicked button and show its corresponding iframe
+                if (clickedBtn) clickedBtn.classList.add('active');
+                if (targetContent) targetContent.classList.add('active');
+            }
+
+            if (btnProfilDaerah && contentProfilDaerah) {
+                btnProfilDaerah.addEventListener('click', function () {
+                    switchMenu(btnProfilDaerah, contentProfilDaerah);
+                });
+            }
+
+            if (btnSatuData && contentSatuData) {
+                btnSatuData.addEventListener('click', function () {
+                    switchMenu(btnSatuData, contentSatuData);
+                });
+            }
+
+            if (btnBerita && contentBerita) {
+                btnBerita.addEventListener('click', function () {
+                    switchMenu(btnBerita, contentBerita);
+                });
+            }
+
+            if (btnJDIH && contentJDIH) {
+                btnJDIH.addEventListener('click', function () {
+                    switchMenu(btnJDIH, contentJDIH);
                 });
             }
         });
