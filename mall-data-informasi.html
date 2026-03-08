@@ -558,6 +558,9 @@
 
             const btnPengumuman = document.getElementById('btnPengumuman');
             const btnProyekStrategis = document.getElementById('btnProyekStrategis');
+            const btnTransparansiAnggaran = document.getElementById('btnTransparansiAnggaran');
+            const btnInformasiADM = document.getElementById('btnInformasiADM');
+            const btnInformasiPublik = document.getElementById('btnInformasiPublik');
             const contentComingSoon = document.getElementById('comingSoon');
 
             const allNavBtns = document.querySelectorAll('.mall-action-btn');
@@ -606,6 +609,24 @@
             if (btnProyekStrategis && contentComingSoon) {
                 btnProyekStrategis.addEventListener('click', function () {
                     switchMenu(btnProyekStrategis, contentComingSoon);
+                });
+            }
+
+            if (btnTransparansiAnggaran && contentComingSoon) {
+                btnTransparansiAnggaran.addEventListener('click', function () {
+                    switchMenu(btnTransparansiAnggaran, contentComingSoon);
+                });
+            }
+
+            if (btnInformasiADM && contentComingSoon) {
+                btnInformasiADM.addEventListener('click', function () {
+                    switchMenu(btnInformasiADM, contentComingSoon);
+                });
+            }
+
+            if (btnInformasiPublik && contentComingSoon) {
+                btnInformasiPublik.addEventListener('click', function () {
+                    switchMenu(btnInformasiPublik, contentComingSoon);
                 });
             }
         });
