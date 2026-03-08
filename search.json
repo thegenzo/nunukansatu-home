@@ -1,0 +1,20 @@
+{
+    "Layanan Publik": {
+        "Layanan Pengaduan": "https://pengaduan.nunukankab.go.id/",
+        "Layanan Kependudukan": "https://disdukcapil.nunukankab.go.id/",
+        "Layanan Kesehatan": "https://dinkes.nunukankab.go.id/",
+        "Layanan Pendidikan": "https://disdikbud.nunukankab.go.id/",
+        "Layanan Ketenagakerjaan": "https://disnaker.nunukankab.go.id/",
+        "Layanan Pertanian": "https://distan.nunukankab.go.id/",
+        "Layanan Perikanan": "https://dkp.nunukankab.go.id/",
+        "Layanan Perkebunan": "https://disbun.nunukankab.go.id/",
+        "Layanan Perindustrian": "https://disperindag.nunukankab.go.id/",
+        "Layanan Perdagangan": "https://disperindag.nunukankab.go.id/",
+        "Layanan Koperasi": "https://diskopukm.nunukankab.go.id/",
+        "Layanan UMKM": "https://diskopukm.nunukankab.go.id/"
+    },
+    "Layanan Administrasi Pemerintah": {
+        "Layanan Naskah Dinas dan Kearsipan": "https://tndd.nunukankab.go.id/",
+        "Layanan Administrasi Umum": "https://"
+    }
+}
