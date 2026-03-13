@@ -1,20 +1,210 @@
 {
-    "Layanan Publik": {
-        "Layanan Pengaduan": "https://pengaduan.nunukankab.go.id/",
-        "Layanan Kependudukan": "https://disdukcapil.nunukankab.go.id/",
-        "Layanan Kesehatan": "https://dinkes.nunukankab.go.id/",
-        "Layanan Pendidikan": "https://disdikbud.nunukankab.go.id/",
-        "Layanan Ketenagakerjaan": "https://disnaker.nunukankab.go.id/",
-        "Layanan Pertanian": "https://distan.nunukankab.go.id/",
-        "Layanan Perikanan": "https://dkp.nunukankab.go.id/",
-        "Layanan Perkebunan": "https://disbun.nunukankab.go.id/",
-        "Layanan Perindustrian": "https://disperindag.nunukankab.go.id/",
-        "Layanan Perdagangan": "https://disperindag.nunukankab.go.id/",
-        "Layanan Koperasi": "https://diskopukm.nunukankab.go.id/",
-        "Layanan UMKM": "https://diskopukm.nunukankab.go.id/"
+  "results": {
+    "informasi_publik": {
+      "label": "Informasi Publik",
+      "count": 10,
+      "icon": "bi-info-circle",
+      "service_page": "publik",
+      "items": [
+        {
+          "id": "publik_1",
+          "title": "SILAPDAT",
+          "category": "Layanan Pengaduan",
+          "type": "publik",
+          "link": "https://satpolpp.nunukankab.go.id/"
+        },
+        {
+          "id": "publik_2",
+          "title": "LAPOR",
+          "category": "Layanan Pengaduan",
+          "type": "publik",
+          "link": "https://lapor.go.id/"
+        },
+        {
+          "id": "publik_3",
+          "title": "JDIH",
+          "category": "Layanan Hukum",
+          "type": "publik",
+          "link": "https://jdih.nunukankab.go.id/"
+        },
+        {
+          "id": "publik_4",
+          "title": "DAPODIK",
+          "category": "Layanan Sektor Pendidikan",
+          "type": "publik",
+          "link": "https://dapo.kemendikdasmen.go.id/"
+        },
+        {
+          "id": "publik_5",
+          "title": "GIS KAB. NUNUKAN",
+          "category": "Layanan Geospasial",
+          "type": "publik",
+          "link": "https://gis.nunukankab.go.id/"
+        },
+        {
+          "id": "publik_6",
+          "title": "PPID",
+          "category": "Layanan Informasi & Dokumentasi",
+          "type": "publik",
+          "link": "http://ppid.nunukankab.go.id/"
+        },
+        {
+          "id": "publik_7",
+          "title": "SIPAKRT",
+          "category": "Layanan Kependudukan",
+          "type": "publik",
+          "link": "https://sipakrt.nunukankab.go.id/"
+        },
+        {
+          "id": "publik_8",
+          "title": "BTH",
+          "category": "Layanan Pajak Retribusi",
+          "type": "publik",
+          "link": "https://pendapatan-nnk.id/"
+        },
+        {
+          "id": "publik_9",
+          "title": "OSS",
+          "category": "Layanan Berusaha",
+          "type": "publik",
+          "link": "https://oss.go.id/"
+        },
+        {
+          "id": "publik_10",
+          "title": "SEMPADAN",
+          "category": "Layanan Berusaha",
+          "type": "publik",
+          "link": "https://sempadan.nunukankab.go.id/"
+        }
+      ]
     },
-    "Layanan Administrasi Pemerintah": {
-        "Layanan Naskah Dinas dan Kearsipan": "https://tndd.nunukankab.go.id/",
-        "Layanan Administrasi Umum": "https://"
+    "informasi_adm": {
+      "label": "Informasi ADM Pemerintah",
+      "count": 11,
+      "icon": "bi-building",
+      "service_page": "adm",
+      "items": [
+        {
+          "id": "adm_1",
+          "title": "TNDD",
+          "category": "Layanan Naskah Dinas & Kearsipan",
+          "type": "adm",
+          "link": "https://tndd.nunukankab.go.id/"
+        },
+        {
+          "id": "adm_2",
+          "title": "SRIKANDI",
+          "category": "Layanan Naskah Dinas & Kearsipan",
+          "type": "adm",
+          "link": "https://srikandi.nunukankab.go.id/"
+        },
+        {
+          "id": "adm_3",
+          "title": "SIRAPEL",
+          "category": "Layanan Naskah Dinas & Kearsipan",
+          "type": "adm",
+          "link": "https://sirapel.nunukankab.go.id/"
+        },
+        {
+          "id": "adm_4",
+          "title": "BKN",
+          "category": "Layanan Manajemen Kepegawaian",
+          "type": "adm",
+          "link": "https://bkn.go.id/"
+        },
+        {
+          "id": "adm_5",
+          "title": "eANJAB",
+          "category": "Layanan Manajemen Kepegawaian",
+          "type": "adm",
+          "link": "https://eanjab.bkn.go.id/"
+        },
+        {
+          "id": "adm_6",
+          "title": "SIPECEL",
+          "category": "Layanan Manajemen Perencanaan & Anggaran",
+          "type": "adm",
+          "link": "https://sipecel.nunukankab.go.id/"
+        },
+        {
+          "id": "adm_7",
+          "title": "SIPD",
+          "category": "Layanan Manajemen Perencanaan & Anggaran",
+          "type": "adm",
+          "link": "https://sipd.kemendagri.go.id/"
+        },
+        {
+          "id": "adm_8",
+          "title": "FMIS",
+          "category": "Layanan Manajemen Keuangan",
+          "type": "adm",
+          "link": "https://fmis.nunukankab.go.id/"
+        },
+        {
+          "id": "adm_9",
+          "title": "e-Presence",
+          "category": "Layanan Manajemen Kinerja",
+          "type": "adm",
+          "link": "https://epresence.nunukankab.go.id/"
+        },
+        {
+          "id": "adm_10",
+          "title": "SIMANJA",
+          "category": "Layanan Manajemen Kinerja",
+          "type": "adm",
+          "link": "https://simanja.nunukankab.go.id/"
+        },
+        {
+          "id": "adm_11",
+          "title": "SEPAKAT",
+          "category": "Layanan Manajemen Kinerja",
+          "type": "adm",
+          "link": "https://sepakat.nunukankab.go.id/"
+        }
+      ]
+    },
+    "berita": {
+      "label": "Berita",
+      "count": 6,
+      "icon": "bi-newspaper",
+      "items": [
+        {
+          "id": "berita_1",
+          "title": "DLH Nunukan Tegaskan Aturan Pembuangan Sampah dalam Pembinaan Pelaku Usaha",
+          "date": "11-Dec-2025",
+          "type": "berita"
+        },
+        {
+          "id": "berita_2",
+          "title": "Pemkab Nunukan Salurkan Bantuan Alat Tulis untuk 15 Peserta Didik PAUD di Sembakung Atul",
+          "date": "11-Dec-2025",
+          "type": "berita"
+        },
+        {
+          "id": "berita_3",
+          "title": "Pemerintah Kecamatan Sebatik Gelar Razia Makanan Kedaluwarsa Jelang NATARU 2026",
+          "date": "22-Dec-2025",
+          "type": "berita"
+        },
+        {
+          "id": "berita_4",
+          "title": "Berita Keempat Tentang Program Kesehatan",
+          "date": "15-Dec-2025",
+          "type": "berita"
+        },
+        {
+          "id": "berita_5",
+          "title": "Pembukaan Kantor Cabang Layanan Publik di Kecamatan Terpencil",
+          "date": "20-Dec-2025",
+          "type": "berita"
+        },
+        {
+          "id": "berita_6",
+          "title": "Sosialisasi Program E-Government untuk UMKM Nunukan",
+          "date": "18-Dec-2025",
+          "type": "berita"
+        }
+      ]
     }
+  }
 }
