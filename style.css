@@ -1241,6 +1241,21 @@ footer {
     color: #BDBDBD;
 }
 
+/* Not Found Message */
+.search-not-found {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.search-not-found p {
+    margin: 0;
+}
+
 /* Show More / Show Less Button */
 .search-show-more-btn {
     display: flex;

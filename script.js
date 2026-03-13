@@ -208,6 +208,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="section-items">
                     ${itemsHtml}
                 </div>
+                <div class="search-not-found" style="display: none; text-align: center; padding: 20px; color: #999;">
+                    <p style="margin: 0;">Tidak ditemukan</p>
+                </div>
                 <button class="search-show-more-btn">
                     <i class="bi bi-chevron-down"></i>
                     <span>Show More</span>
@@ -331,6 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.addEventListener('input', function () {
             const searchTerm = this.value.toLowerCase();
             const searchItems = document.querySelectorAll('.search-item');
+            const searchSections = document.querySelectorAll('.search-section');
 
             searchItems.forEach(item => {
                 const title = item.querySelector('.item-title').textContent.toLowerCase();
@@ -341,6 +345,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';
+                }
+            });
+
+            // Check each section for visibility and show "Tidak ditemukan" message if needed
+            searchSections.forEach(section => {
+                const visibleItems = section.querySelectorAll('.search-item:not([style*="display: none"])');
+                const notFoundMsg = section.querySelector('.search-not-found');
+                
+                if (visibleItems.length === 0) {
+                    // No visible items - show "Tidak ditemukan"
+                    if (notFoundMsg) {
+                        notFoundMsg.style.display = 'block';
+                    }
+                } else {
+                    // Have visible items - hide "Tidak ditemukan"
+                    if (notFoundMsg) {
+                        notFoundMsg.style.display = 'none';
+                    }
                 }
             });
         });
