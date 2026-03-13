@@ -352,14 +352,28 @@ document.addEventListener('DOMContentLoaded', function () {
             searchSections.forEach(section => {
                 const visibleItems = section.querySelectorAll('.search-item:not([style*="display: none"])');
                 const notFoundMsg = section.querySelector('.search-not-found');
+                const itemsContainer = section.querySelector('.section-items');
+                const showMoreBtn = section.querySelector('.search-show-more-btn');
                 
                 if (visibleItems.length === 0) {
-                    // No visible items - show "Tidak ditemukan"
+                    // No visible items - hide grid and show "Tidak ditemukan"
+                    if (itemsContainer) {
+                        itemsContainer.style.display = 'none';
+                    }
+                    if (showMoreBtn) {
+                        showMoreBtn.style.display = 'none';
+                    }
                     if (notFoundMsg) {
                         notFoundMsg.style.display = 'block';
                     }
                 } else {
-                    // Have visible items - hide "Tidak ditemukan"
+                    // Have visible items - show grid and hide "Tidak ditemukan"
+                    if (itemsContainer) {
+                        itemsContainer.style.display = 'grid';
+                    }
+                    if (showMoreBtn) {
+                        showMoreBtn.style.display = 'block';
+                    }
                     if (notFoundMsg) {
                         notFoundMsg.style.display = 'none';
                     }
