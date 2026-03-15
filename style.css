@@ -1508,8 +1508,7 @@ footer {
 
 .search-modal-content {
     width: 1000px !important;
-    height: auto !important;
-    max-height: 90vh !important;
+    height: 700px !important;
     background-color: var(--bg-white) !important;
     background-image: none !important;
     padding: 0 !important;
@@ -1559,6 +1558,8 @@ footer {
     border-bottom: 1px solid #E0E0E0;
     background-color: var(--bg-white);
     padding: 0 30px;
+    overflow-x: auto;
+    flex-shrink: 0;
 }
 
 .search-tab {
@@ -1618,7 +1619,9 @@ footer {
 .search-results-body {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 30px;
+    min-height: 0;
 }
 
 .search-tab-content {
@@ -1788,7 +1791,7 @@ footer {
 @media (max-width: 1200px) {
     .search-modal-content {
         width: 90% !important;
-        max-height: 85vh !important;
+        height: 650px !important;
     }
 
     .search-header {
@@ -1810,8 +1813,7 @@ footer {
 @media (max-width: 768px) {
     .search-modal-content {
         width: 95% !important;
-        height: 85vh !important;
-        max-height: 85vh !important;
+        height: 600px !important;
         border-radius: 8px !important;
     }
 
@@ -1951,8 +1953,7 @@ footer {
 @media (max-width: 480px) {
     .search-modal-content {
         width: 98% !important;
-        height: 90vh !important;
-        max-height: 90vh !important;
+        height: 550px !important;
         border-radius: 8px !important;
     }
 
