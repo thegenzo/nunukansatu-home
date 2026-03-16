@@ -359,6 +359,69 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Row 3: Card 9: Layanan Kesehatan-->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Kesehatan"
+                                class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Kesehatan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/public-service.html?name=SEHATI&url=https://sehati.nunukankab.go.id/user-management/auth/login"
+                                    class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-ppid.png" alt="PPID">
+                                    </span>
+                                    <span class="btn-text">SEHATI</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 10: Layanan Pengadaan Barang dan Jasa-->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Kesehatan"
+                                class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Pengadaan Barang <br>dan Jasa</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/public-service.html?name=INAPROC&url=https://spse.inaproc.id/nunukankab"
+                                    class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-ppid.png" alt="PPID">
+                                    </span>
+                                    <span class="btn-text">INAPROC</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 11: Layanan Pengadaan Barang dan Jasa-->
+                    <div class="service-card-new">
+                        <div class="card-image-section">
+                            <img src="./assets/img/public-service-card-header.png" alt="Layanan Kesehatan"
+                                class="card-bg-image">
+                            <div class="card-overlay"></div>
+                            <h3 class="card-title">Layanan Perpustakaan</h3>
+                        </div>
+                        <div class="card-content-section">
+                            <div class="service-btn-group">
+                                <a href="./public-services/public-service.html?name=INLISLITE&url=http://layananperpus.nunukankab.go.id"
+                                    class="service-btn">
+                                    <span class="btn-icon">
+                                        <img src="./assets/img/icon-ppid.png" alt="PPID">
+                                    </span>
+                                    <span class="btn-text">INLISLITE</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -396,7 +459,7 @@
                                     </div>
                                     <span class="btn-text">TATA NASKAH DINAS DIGITAL</span>
                                 </a>
-                                <a href="./government-administration-service/administration-service.html?name=SRIKANDI&url=https://srikandi.nunukankab.go.id/"
+                                <a href="./government-administration-service/administration-service.html?name=SRIKANDI&url=https://srikandi.arsip.go.id/"
                                     class="service-btn">
                                     <div class="btn-icon">
                                         <img src="./assets/img/srikandi.png" alt="SRIKANDI">
@@ -424,7 +487,7 @@
                         </div>
                         <div class="card-content-section">
                             <div class="service-btn-group">
-                                <a href="./government-administration-service/administration-service.html?name=BKN&url=https://bkn.go.id/"
+                                <a href="./government-administration-service/administration-service.html?name=BKN&url=https://asndigital.bkn.go.id/"
                                     class="service-btn">
                                     <div class="btn-icon">
                                         <img src="./assets/img/bkn.png" alt="BKN">
@@ -530,74 +593,6 @@
         </div>
     </div>
 
-    <!-- Search Results Modal -->
-    <div id="searchModal" class="modal-overlay search-modal-overlay">
-        <div class="modal-content search-modal-content">
-            <!-- Search Header with Input -->
-            <div class="search-header">
-                <input type="text" id="searchInput" class="search-input" placeholder="Cari layanan, berita, atau informasi...">
-                <button class="close-modal btn btn-sm btn-danger px-3" id="closeSearchModal">
-                    <i class="bi bi-x"></i>
-                    <span>Keluar</span>
-                </button>
-            </div>
-
-            <!-- Tab Navigation -->
-            <div class="search-tabs">
-                <button class="search-tab active" data-tab="all">
-                    <span class="tab-icon">
-                        <i class="bi bi-list"></i>
-                    </span>
-                    <span class="tab-label">Semua</span>
-                </button>
-                <button class="search-tab" data-tab="publik">
-                    <span class="tab-icon">
-                        <i class="bi bi-info-circle"></i>
-                    </span>
-                    <span class="tab-label">Informasi Publik</span>
-                    <span class="tab-count">10</span>
-                </button>
-                <button class="search-tab" data-tab="adm">
-                    <span class="tab-icon">
-                        <i class="bi bi-building"></i>
-                    </span>
-                    <span class="tab-label">Informasi ADM Pemerintah</span>
-                    <span class="tab-count">11</span>
-                </button>
-                <button class="search-tab" data-tab="berita">
-                    <span class="tab-icon">
-                        <i class="bi bi-newspaper"></i>
-                    </span>
-                    <span class="tab-label">Berita</span>
-                    <span class="tab-count">6</span>
-                </button>
-            </div>
-
-            <!-- Search Results Content -->
-            <div class="search-results-body">
-                <!-- Tab: Semua -->
-                <div class="search-tab-content active" id="tab-all">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-
-                <!-- Tab: Informasi Publik -->
-                <div class="search-tab-content" id="tab-publik">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-
-                <!-- Tab: Informasi ADM Pemerintah -->
-                <div class="search-tab-content" id="tab-adm">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-
-                <!-- Tab: Berita -->
-                <div class="search-tab-content" id="tab-berita">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Pengaduan Popup -->
     <div id="pengaduanPopup" class="pengaduan-popup">
         <div class="pengaduan-options">
@@ -628,6 +623,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script src="search-modal-component.js"></script>
     <script src="search.js"></script>
 </body>
 

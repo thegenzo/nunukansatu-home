@@ -44,77 +44,12 @@
         </div>
     </header>
 
-    <!-- Search Results Modal -->
-    <div id="searchModal" class="modal-overlay search-modal-overlay">
-        <div class="modal-content search-modal-content">
-            <!-- Search Header with Input -->
-            <div class="search-header">
-                <input type="text" id="searchInput" class="search-input" placeholder="Cari layanan, berita, atau informasi...">
-                <button class="close-modal btn btn-sm btn-danger px-3" id="closeSearchModal">
-                    <i class="bi bi-x"></i>
-                    <span>Keluar</span>
-                </button>
-            </div>
 
-            <!-- Tab Navigation -->
-            <div class="search-tabs">
-                <button class="search-tab active" data-tab="all">
-                    <span class="tab-icon">
-                        <i class="bi bi-list"></i>
-                    </span>
-                    <span class="tab-label">Semua</span>
-                </button>
-                <button class="search-tab" data-tab="publik">
-                    <span class="tab-icon">
-                        <i class="bi bi-info-circle"></i>
-                    </span>
-                    <span class="tab-label">Informasi Publik</span>
-                    <span class="tab-count">10</span>
-                </button>
-                <button class="search-tab" data-tab="adm">
-                    <span class="tab-icon">
-                        <i class="bi bi-building"></i>
-                    </span>
-                    <span class="tab-label">Informasi ADM Pemerintah</span>
-                    <span class="tab-count">11</span>
-                </button>
-                <button class="search-tab" data-tab="berita">
-                    <span class="tab-icon">
-                        <i class="bi bi-newspaper"></i>
-                    </span>
-                    <span class="tab-label">Berita</span>
-                    <span class="tab-count">6</span>
-                </button>
-            </div>
-
-            <!-- Search Results Content -->
-            <div class="search-results-body">
-                <!-- Tab: Semua -->
-                <div class="search-tab-content active" id="tab-all">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-
-                <!-- Tab: Informasi Publik -->
-                <div class="search-tab-content" id="tab-publik">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-
-                <!-- Tab: Informasi ADM Pemerintah -->
-                <div class="search-tab-content" id="tab-adm">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-
-                <!-- Tab: Berita -->
-                <div class="search-tab-content" id="tab-berita">
-                    <!-- Will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Biarkan src kosong, akan diisi oleh JavaScript -->
     <iframe id="layanan-iframe" style="width: 100%; height: calc(100vh - 100px)" src="" frameborder="0"></iframe>
     
+    <script src="../search-modal-component.js"></script>
     <script src="../search.js"></script>
 
     <!-- Bagian JavaScript untuk mengambil parameter URL -->

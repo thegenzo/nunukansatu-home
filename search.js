@@ -148,6 +148,16 @@
             
             console.log(`📊 Pagination check - Items returned: ${transformedItems.length}, Per page: ${BERITA_PER_PAGE}, Has more: ${beritaHasMorePages}`);
             console.log(`✅ Transformed berita data: ${currentBeritaData.items.length} items loaded | Has more: ${beritaHasMorePages}`);
+            
+            // Update berita tab count if this is a new search (page 1)
+            if (page === 1 || !isLoadMore) {
+                const beritaCountElement = document.querySelector('[data-tab="berita"] .tab-count');
+                if (beritaCountElement && currentBeritaData) {
+                    beritaCountElement.textContent = currentBeritaData.count;
+                    console.log(`📊 Updated berita tab count: ${currentBeritaData.count}`);
+                }
+            }
+            
             return currentBeritaData;
         } catch (error) {
             console.error('❌ Error fetching berita from API:', error);
@@ -237,17 +247,18 @@
             const dataLink = item.link ? `data-link="${item.link}"` : '';
             const dataServicePage = `data-service-page="${servicePage}"`;
             const dataTitle = `data-title="${item.title}"`;
+            const dataKeywords = item.keywords ? `data-keywords="${item.keywords.join(',')}"` : '';
             
             if (isBerita) {
                 return `
-                    <div class="search-item news-item" data-id="${item.id}" data-link="${item.link}" style="cursor: pointer;">
+                    <div class="search-item news-item" data-id="${item.id}" data-link="${item.link}" ${dataKeywords} style="cursor: pointer;">
                         <p class="item-title">${item.title}</p>
                         <p class="item-date">${item.date}</p>
                     </div>
                 `;
             } else {
                 return `
-                    <div class="search-item" data-id="${item.id}" ${dataLink} ${dataServicePage} ${dataTitle} style="cursor: pointer;">
+                    <div class="search-item" data-id="${item.id}" ${dataLink} ${dataServicePage} ${dataTitle} ${dataKeywords} style="cursor: pointer;">
                         <p class="item-title">${item.title}</p>
                         <p class="item-category">${item.category}</p>
                     </div>
@@ -343,6 +354,10 @@
                     // Render the tab content
                     renderTabContent(tabName);
                 }
+
+                // Update tab counts for current search term
+                const searchTerm = searchInput.value.toLowerCase();
+                updateTabCounts(searchTerm);
             });
         });
 
@@ -374,8 +389,13 @@
                 const title = item.querySelector('.item-title').textContent.toLowerCase();
                 const categoryOrDate = item.querySelector('.item-category, .item-date');
                 const categoryOrDateText = categoryOrDate ? categoryOrDate.textContent.toLowerCase() : '';
+                
+                // Get keywords from data attribute if available
+                const keywordsText = item.getAttribute('data-keywords') ? item.getAttribute('data-keywords').toLowerCase() : '';
 
-                const matches = title.includes(searchTerm) || categoryOrDateText.includes(searchTerm);
+                const matches = title.includes(searchTerm) 
+                    || categoryOrDateText.includes(searchTerm)
+                    || keywordsText.includes(searchTerm);
                 
                 if (matches) {
                     item.style.display = 'flex';
@@ -418,7 +438,86 @@
                     }
                 }
             });
+
+            // Update tab counts dynamically based on filtered results
+            updateTabCounts(searchTerm);
         });
+    }
+
+    function updateTabCounts(searchTerm) {
+        if (!searchTerm) {
+            // Reset to original counts when search is cleared
+            if (searchData) {
+                const totalCount = searchData.informasi_publik.count + searchData.informasi_adm.count + (currentBeritaData?.count || 0);
+                document.querySelector('[data-tab="all"] .tab-count').textContent = totalCount;
+                document.querySelector('[data-tab="publik"] .tab-count').textContent = searchData.informasi_publik.count;
+                document.querySelector('[data-tab="adm"] .tab-count').textContent = searchData.informasi_adm.count;
+                
+                // Reset section counts to original values
+                const publikSectionCount = document.querySelector('[data-section="informasi_publik"] .section-count');
+                const admSectionCount = document.querySelector('[data-section="informasi_adm"] .section-count');
+                const beritaSectionCount = document.querySelector('[data-section="berita"] .section-count');
+                
+                if (publikSectionCount) publikSectionCount.textContent = searchData.informasi_publik.count;
+                if (admSectionCount) admSectionCount.textContent = searchData.informasi_adm.count;
+                if (beritaSectionCount && currentBeritaData) beritaSectionCount.textContent = currentBeritaData.count;
+            }
+            if (currentBeritaData) {
+                document.querySelector('[data-tab="berita"] .tab-count').textContent = currentBeritaData.count;
+            }
+            console.log('🔄 Tab counts reset to original values');
+            return;
+        }
+
+        // Count visible items in each section
+        const publikSection = document.querySelector('[data-section="informasi_publik"]');
+        const admSection = document.querySelector('[data-section="informasi_adm"]');
+        const beritaSection = document.querySelector('[data-section="berita"]');
+
+        let publikVisible = 0;
+        let admVisible = 0;
+        let beritaVisible = 0;
+
+        if (publikSection) {
+            publikVisible = publikSection.querySelectorAll('.search-item:not([style*="display: none"])').length;
+            document.querySelector('[data-tab="publik"] .tab-count').textContent = publikVisible;
+            
+            // Update section count for Publik
+            const publikSectionCount = publikSection.querySelector('.section-count');
+            if (publikSectionCount) {
+                publikSectionCount.textContent = publikVisible;
+            }
+            console.log(`📊 Publik tab count updated: ${publikVisible}`);
+        }
+
+        if (admSection) {
+            admVisible = admSection.querySelectorAll('.search-item:not([style*="display: none"])').length;
+            document.querySelector('[data-tab="adm"] .tab-count').textContent = admVisible;
+            
+            // Update section count for ADM
+            const admSectionCount = admSection.querySelector('.section-count');
+            if (admSectionCount) {
+                admSectionCount.textContent = admVisible;
+            }
+            console.log(`📊 ADM tab count updated: ${admVisible}`);
+        }
+
+        if (beritaSection) {
+            beritaVisible = beritaSection.querySelectorAll('.search-item:not([style*="display: none"])').length;
+            document.querySelector('[data-tab="berita"] .tab-count').textContent = beritaVisible;
+            
+            // Update section count for Berita
+            const beritaSectionCount = beritaSection.querySelector('.section-count');
+            if (beritaSectionCount) {
+                beritaSectionCount.textContent = beritaVisible;
+            }
+            console.log(`📊 Berita tab count updated: ${beritaVisible}`);
+        }
+
+        // Update total count for 'Semua' tab
+        const totalVisible = publikVisible + admVisible + beritaVisible;
+        document.querySelector('[data-tab="all"] .tab-count').textContent = totalVisible;
+        console.log(`📊 Total (Semua) tab count updated: ${totalVisible}`);
     }
 
     // ============================================
