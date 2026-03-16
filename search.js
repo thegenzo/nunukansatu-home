@@ -34,13 +34,22 @@
     function initializeSearchModal() {
         // Get DOM elements
         searchModal = document.getElementById('searchModal');
-        searchBtn = document.querySelector('.floating-nav .btn-primary-red');
+        // Try to find search button by ID first, then fallback to selector
+        searchBtn = document.getElementById('searchBtn') || document.querySelector('.floating-nav .btn-primary-red') || document.querySelector('button:has-text("Search")');
         closeSearchBtn = document.getElementById('closeSearchModal');
         searchTabs = document.querySelectorAll('.search-tab');
         searchInput = document.getElementById('searchInput');
 
+        console.log('🔧 Search Modal Initialization:');
+        console.log('  - searchModal:', searchModal ? '✅ Found' : '❌ Not found');
+        console.log('  - searchBtn:', searchBtn ? '✅ Found' : '❌ Not found');
+        console.log('  - closeSearchBtn:', closeSearchBtn ? '✅ Found' : '❌ Not found');
+        console.log('  - searchTabs:', searchTabs.length > 0 ? `✅ Found (${searchTabs.length})` : '❌ Not found');
+        console.log('  - searchInput:', searchInput ? '✅ Found' : '❌ Not found');
+
         if (!searchBtn || !searchModal || !closeSearchBtn) {
-            console.error('Search modal elements not found');
+            console.error('❌ Critical: Search modal elements not found');
+            console.error('   Please ensure searchBtn (id="searchBtn"), searchModal (id="searchModal"), and closeSearchModal (id="closeSearchModal") exist in HTML');
             return;
         }
 
@@ -54,13 +63,30 @@
     // ============================================
     async function loadSearchData() {
         try {
-            const response = await fetch('./search.json');
-            if (!response.ok) throw new Error('Failed to load search data');
+            console.log('📂 Loading search data from /search.json...');
+            // Use absolute path to work from any page location
+            const response = await fetch('/search.json');
+            if (!response.ok) {
+                throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+            }
             const data = await response.json();
             searchData = data.results;
+            console.log('✅ Search data loaded successfully:', searchData);
             initializeSearchUI();
         } catch (error) {
-            console.error('Error loading search data:', error);
+            console.error('❌ Error loading search data:', error);
+            console.error('   Trying alternative path: ./search.json');
+            // Try alternative path
+            try {
+                const response = await fetch('./search.json');
+                if (!response.ok) throw new Error('Alternative path also failed');
+                const data = await response.json();
+                searchData = data.results;
+                console.log('✅ Search data loaded from alternative path');
+                initializeSearchUI();
+            } catch (error2) {
+                console.error('❌ Failed to load search data from both paths:', error2);
+            }
         }
     }
 
@@ -256,18 +282,23 @@
     // EVENT LISTENERS
     // ============================================
     function setupEventListeners() {
+        console.log('🎯 Setting up event listeners...');
+        
         // Open search modal
         searchBtn.addEventListener('click', function (e) {
             e.preventDefault();
+            console.log('🔓 Search button clicked - Opening modal');
             searchModal.style.display = 'flex';
             setTimeout(() => {
                 searchModal.classList.add('show');
                 searchInput.focus();
+                console.log('✅ Modal displayed');
             }, 10);
         });
 
         // Close search modal
         closeSearchBtn.addEventListener('click', function () {
+            console.log('🔒 Close button clicked - Closing modal');
             searchModal.classList.remove('show');
             setTimeout(() => {
                 searchModal.style.display = 'none';
@@ -277,6 +308,7 @@
         // Close search modal when clicking outside modal-content
         searchModal.addEventListener('click', function (e) {
             if (e.target === searchModal) {
+                console.log('🔒 Clicked outside modal - Closing');
                 searchModal.classList.remove('show');
                 setTimeout(() => {
                     searchModal.style.display = 'none';

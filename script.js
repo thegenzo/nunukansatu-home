@@ -110,4 +110,74 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.error('Pengaduan popup elements not found');
     }
+
+    // ============================================
+    // LIVE CHAT MODAL
+    // ============================================
+    const liveChatModal = document.getElementById('liveChatModal');
+    const liveChatBtn = document.getElementById('liveChatBtn');
+    const liveChatForm = document.getElementById('liveChatForm');
+    const liveChatCloseBtn = liveChatModal ? liveChatModal.querySelector('.live-chat-close') : null;
+
+    if (liveChatModal && liveChatBtn && liveChatCloseBtn) {
+        // Open live chat modal
+        liveChatBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            liveChatModal.style.display = 'flex';
+            setTimeout(() => {
+                liveChatModal.classList.add('show');
+            }, 10);
+        });
+
+        // Close live chat modal when clicking X
+        liveChatCloseBtn.addEventListener('click', function () {
+            liveChatModal.classList.remove('show');
+            setTimeout(() => {
+                liveChatModal.style.display = 'none';
+            }, 300);
+        });
+
+        // Close live chat modal when clicking outside modal-content
+        liveChatModal.addEventListener('click', function (e) {
+            if (e.target === liveChatModal) {
+                liveChatModal.classList.remove('show');
+                setTimeout(() => {
+                    liveChatModal.style.display = 'none';
+                }, 300);
+            }
+        });
+
+        // Handle form submission
+        if (liveChatForm) {
+            liveChatForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                
+                // Get form values
+                const email = document.getElementById('chatEmail').value;
+                const name = document.getElementById('chatName').value;
+                const message = document.getElementById('chatMessage').value;
+
+                // Log the form data (In real scenario, this would be sent to a server)
+                console.log('Live Chat Form Submitted:', {
+                    email: email,
+                    name: name,
+                    message: message
+                });
+
+                // Show success message (optional)
+                alert(`Terima kasih ${name}! Pesan Anda telah dikirim. Kami akan menghubungi Anda segera di ${email}`);
+
+                // Reset form
+                liveChatForm.reset();
+
+                // Close modal
+                liveChatModal.classList.remove('show');
+                setTimeout(() => {
+                    liveChatModal.style.display = 'none';
+                }, 300);
+            });
+        }
+    } else {
+        console.error('Live Chat modal elements not found');
+    }
 });
