@@ -1,7 +1,7 @@
 {
   "results": {
-    "informasi_publik": {
-      "label": "Informasi Publik",
+    "layanan_publik": {
+      "label": "Layanan Publik",
       "count": 13,
       "icon": "bi-info-circle",
       "service_page": "publik",
@@ -12,7 +12,7 @@
           "category": "Layanan Pengaduan",
           "type": "publik",
           "link": "https://satpolpp.nunukankab.go.id/",
-          "keywords": ["pengaduan", "laporan", "satuan pol pp", "pelanggaran", "aduan", "komplain", "satpolpp", "polisi pamong praja", "layanan pengaduan", "notifikasi pelanggaran", "unit tilang", "penegakan peraturan"]
+          "keywords": ["pengaduan", "laporan", "satuan pol pp", "pelanggaran", "aduan", "komplain", "satpolpp", "polisi pamong praja", "layanan pengaduan", "notifikasi pelanggaran", "unit tilang", "penegakan peraturan", "satpolpp"]
         },
         {
           "id": "publik_2",
@@ -20,7 +20,7 @@
           "category": "Layanan Pengaduan",
           "type": "publik",
           "link": "https://lapor.go.id/",
-          "keywords": ["pengaduan", "laporan", "aspirasi", "masalah", "keluhan", "aduan", "portal aspirasi", "call center 14041", "feedback", "masukan", "saran", "kritik"]
+          "keywords": ["pengaduan", "laporan", "aspirasi", "masalah", "keluhan", "aduan", "portal aspirasi", "call center 14041", "feedback", "masukan", "saran", "kritik", "kekerasan", "darurat", "gawat darurat"]
         },
         {
           "id": "publik_3",
@@ -28,7 +28,7 @@
           "category": "Layanan Hukum",
           "type": "publik",
           "link": "https://jdih.nunukankab.go.id/",
-          "keywords": ["hukum", "peraturan", "undang-undang", "regulasi", "dokumentasi", "produk hukum", "perda", "peraturan daerah", "keputusan", "peraturan bupati", "legal", "legislasi"]
+          "keywords": ["hukum", "peraturan", "undang-undang", "regulasi", "dokumentasi", "produk hukum", "perda", "peraturan daerah", "keputusan", "peraturan bupati", "legal", "legislasi", "pidana", "perdata"]
         },
         {
           "id": "publik_4",
@@ -36,7 +36,7 @@
           "category": "Layanan Sektor Pendidikan",
           "type": "publik",
           "link": "https://dapo.kemendikdasmen.go.id/",
-          "keywords": ["pendidikan", "sekolah", "siswa", "guru", "data pendidik", "akademik", "pembelajaran", "peserta didik", "sekolah dasar", "SMP", "SMA", "data pelajar"]
+          "keywords": ["pendidikan", "sekolah", "siswa", "guru", "data pendidik", "akademik", "pembelajaran", "peserta didik", "sekolah dasar", "SMP", "SMA", "data pelajar", "mahasiswa", "kuliah", "kampus", "dosen", "pengajar", "tenaga didik"]
         },
         {
           "id": "publik_5",
@@ -44,7 +44,7 @@
           "category": "Layanan Geospasial",
           "type": "publik",
           "link": "https://gis.nunukankab.go.id/",
-          "keywords": ["peta", "lokasi", "geospasial", "wilayah", "koordinat", "mapping", "sistem informasi geografis", "SIG", "pemetaan digital", "data spasial", "topografi"]
+          "keywords": ["peta", "lokasi", "geospasial", "wilayah", "koordinat", "mapping", "sistem informasi geografis", "SIG", "pemetaan digital", "data spasial", "topografi", "geolokasi", "kontur", "pemetaan"]
         },
         {
           "id": "publik_6",
@@ -60,7 +60,7 @@
           "category": "Layanan Kependudukan",
           "type": "publik",
           "link": "https://sipakrt.nunukankab.go.id/",
-          "keywords": ["kependudukan", "penduduk", "data warga", "ktp", "kartu keluarga", "demografi", "administrasi kependudukan", "NIK", "KK", "akta kelahiran", "sensus"]
+          "keywords": ["kependudukan", "penduduk", "data warga", "ktp", "kartu keluarga", "demografi", "administrasi kependudukan", "NIK", "KK", "akta kelahiran", "sensus", "kelurahan", "kecamatan", "kelurahan", "kabupaten", "kota"]
         },
         {
           "id": "publik_8",
@@ -68,7 +68,7 @@
           "category": "Layanan Pajak Retribusi",
           "type": "publik",
           "link": "https://pendapatan-nnk.id/",
-          "keywords": ["pajak", "retribusi", "pendapatan", "bea", "cukai", "iuran", "pajak daerah", "tarif pajak", "pembayaran pajak", "PPh", "PPN", "pendapatan daerah"]
+          "keywords": ["pajak", "retribusi", "pendapatan", "bea", "cukai", "iuran", "pajak daerah", "tarif pajak", "pembayaran pajak", "PPh", "PPN", "pendapatan daerah", "SPT"]
         },
         {
           "id": "publik_9",
@@ -112,8 +112,8 @@
         }
       ]
     },
-    "informasi_adm": {
-      "label": "Informasi ADM Pemerintah",
+    "layanan_adm": {
+      "label": "Layanan ADM Pemerintah",
       "count": 11,
       "icon": "bi-building",
       "service_page": "adm",
@@ -124,7 +124,7 @@
           "category": "Layanan Naskah Dinas & Kearsipan",
           "type": "adm",
           "link": "https://tndd.nunukankab.go.id/",
-          "keywords": ["naskah dinas", "kearsipan", "surat", "memo", "dokumentasi", "arsip", "dispatch", "pencatatan surat", "tanda dinas", "surat keluar", "surat resmi"]
+          "keywords": ["naskah dinas", "kearsipan", "surat", "memo", "dokumentasi", "arsip", "dispatch", "pencatatan surat", "tanda dinas", "surat keluar", "surat resmi", "disposisi"]
         },
         {
           "id": "adm_2",
@@ -140,7 +140,7 @@
           "category": "Layanan Naskah Dinas & Kearsipan",
           "type": "adm",
           "link": "https://sirapel.nunukankab.go.id/",
-          "keywords": ["kearsipan", "rapat", "pertemuan", "berita acara", "dokumentasi rapat", "notulen", "hasil rapat", "acara pimpinan", "undangan rapat", "rapat pemerintah"]
+          "keywords": ["kearsipan", "rapat", "pertemuan", "berita acara", "dokumentasi rapat", "notulen", "hasil rapat", "acara pimpinan", "undangan rapat", "rapat pemerintah", "notulensi", "kuorum"]
         },
         {
           "id": "adm_4",
@@ -156,7 +156,7 @@
           "category": "Layanan Manajemen Kepegawaian",
           "type": "adm",
           "link": "https://eanjab.bkn.go.id/",
-          "keywords": ["kepegawaian", "jabatan", "analisis jabatan", "organisasi", "struktur", "beban kerja", "uraian tugas", "posisi pekerjaan", "deskripsi jabatan"]
+          "keywords": ["kepegawaian", "jabatan", "analisis jabatan", "organisasi", "struktur", "beban kerja", "uraian tugas", "posisi pekerjaan", "deskripsi jabatan", "surat keputusan", "surat kerja"]
         },
         {
           "id": "adm_6",
@@ -164,7 +164,7 @@
           "category": "Layanan Manajemen Perencanaan & Anggaran",
           "type": "adm",
           "link": "https://sipecel.nunukankab.go.id/",
-          "keywords": ["perencanaan", "anggaran", "APBD", "rencana kerja", "program kerja", "RKA", "RKPD", "perencanaan pembangunan", "target strategis", "kegiatan"]
+          "keywords": ["perencanaan", "anggaran", "APBD", "rencana kerja", "program kerja", "RKA", "RKPD", "perencanaan pembangunan", "target strategis", "kegiatan", "keuangan"]
         },
         {
           "id": "adm_7",
@@ -172,7 +172,7 @@
           "category": "Layanan Manajemen Perencanaan & Anggaran",
           "type": "adm",
           "link": "https://sipd.kemendagri.go.id/",
-          "keywords": ["perencanaan", "anggaran", "APBD", "perencanaaan pembangunan", "anggaran daerah", "RKA-K/L", "alokasi anggaran", "belanja pembangunan", "investasi daerah"]
+          "keywords": ["perencanaan", "anggaran", "APBD", "perencanaaan pembangunan", "anggaran daerah", "RKA-K/L", "alokasi anggaran", "belanja pembangunan", "investasi daerah", "keuangan"]
         },
         {
           "id": "adm_8",
@@ -196,7 +196,7 @@
           "category": "Layanan Manajemen Kinerja",
           "type": "adm",
           "link": "https://simanja.nunukankab.go.id/",
-          "keywords": ["kinerja", "penilaian", "evaluasi", "manajemen kinerja", "SKP", "sasaran kerja pegawai", "performance management", "penilaian kinerja", "hasil kerja"]
+          "keywords": ["kinerja", "penilaian", "evaluasi", "manajemen kinerja", "SKP", "sasaran kerja pegawai", "performance management", "penilaian kinerja", "hasil kerja", "target capaian"]
         },
         {
           "id": "adm_11",
@@ -204,56 +204,7 @@
           "category": "Layanan Manajemen Kinerja",
           "type": "adm",
           "link": "https://sepakat.nunukankab.go.id/",
-          "keywords": ["kinerja", "penilaian", "target", "realisasi", "sasaran kerja", "capaian", "evaluasi kerja", "monitoring target", "pencapaian OPD"]
-        }
-      ]
-    },
-    "berita": {
-      "label": "Berita",
-      "count": 6,
-      "icon": "bi-newspaper",
-      "items": [
-        {
-          "id": "berita_1",
-          "title": "DLH Nunukan Tegaskan Aturan Pembuangan Sampah dalam Pembinaan Pelaku Usaha",
-          "date": "11-Dec-2025",
-          "type": "berita",
-          "keywords": ["lingkungan", "sampah", "DLH", "kebersihan", "pelaku usaha", "aturan"]
-        },
-        {
-          "id": "berita_2",
-          "title": "Pemkab Nunukan Salurkan Bantuan Alat Tulis untuk 15 Peserta Didik PAUD di Sembakung Atul",
-          "date": "11-Dec-2025",
-          "type": "berita",
-          "keywords": ["pendidikan", "PAUD", "bantuan", "alat tulis", "peserta didik", "Sembakung Atul"]
-        },
-        {
-          "id": "berita_3",
-          "title": "Pemerintah Kecamatan Sebatik Gelar Razia Makanan Kedaluwarsa Jelang NATARU 2026",
-          "date": "22-Dec-2025",
-          "type": "berita",
-          "keywords": ["razia", "makanan", "kedaluwarsa", "NATARU", "Sebatik", "keamanan pangan"]
-        },
-        {
-          "id": "berita_4",
-          "title": "Berita Keempat Tentang Program Kesehatan",
-          "date": "15-Dec-2025",
-          "type": "berita",
-          "keywords": ["kesehatan", "program", "medis", "layanan kesehatan", "masyarakat"]
-        },
-        {
-          "id": "berita_5",
-          "title": "Pembukaan Kantor Cabang Layanan Publik di Kecamatan Terpencil",
-          "date": "20-Dec-2025",
-          "type": "berita",
-          "keywords": ["layanan publik", "kantor cabang", "kecamatan", "terpencil", "ekspansi"]
-        },
-        {
-          "id": "berita_6",
-          "title": "Sosialisasi Program E-Government untuk UMKM Nunukan",
-          "date": "18-Dec-2025",
-          "type": "berita",
-          "keywords": ["e-government", "sosialisasi", "UMKM", "digital", "transformasi digital"]
+          "keywords": ["kinerja", "penilaian", "target", "realisasi", "sasaran kerja", "capaian", "evaluasi kerja", "monitoring target", "pencapaian OPD", "target capaian"]
         }
       ]
     }

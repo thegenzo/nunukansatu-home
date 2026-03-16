@@ -25,28 +25,28 @@ function createSearchModalHTML() {
                         <i class="bi bi-list"></i>
                     </span>
                     <span class="tab-label">Semua</span>
-                    <span class="tab-count">30</span>
+                    <span class="tab-count">0</span>
                 </button>
                 <button class="search-tab" data-tab="publik">
                     <span class="tab-icon">
                         <i class="bi bi-info-circle"></i>
                     </span>
                     <span class="tab-label">Layanan Publik</span>
-                    <span class="tab-count">13</span>
+                    <span class="tab-count">0</span>
                 </button>
                 <button class="search-tab" data-tab="adm">
                     <span class="tab-icon">
                         <i class="bi bi-building"></i>
                     </span>
                     <span class="tab-label">Layanan ADM Pemerintah</span>
-                    <span class="tab-count">11</span>
+                    <span class="tab-count">0</span>
                 </button>
                 <button class="search-tab" data-tab="berita">
                     <span class="tab-icon">
                         <i class="bi bi-newspaper"></i>
                     </span>
                     <span class="tab-label">Berita</span>
-                    <span class="tab-count">6</span>
+                    <span class="tab-count">0</span>
                 </button>
             </div>
 
@@ -57,12 +57,12 @@ function createSearchModalHTML() {
                     <!-- Will be populated by JavaScript -->
                 </div>
 
-                <!-- Tab: Informasi Publik -->
+                <!-- Tab: Layanan Publik -->
                 <div class="search-tab-content" id="tab-publik">
                     <!-- Will be populated by JavaScript -->
                 </div>
 
-                <!-- Tab: Informasi ADM Pemerintah -->
+                <!-- Tab: Layanan ADM Pemerintah -->
                 <div class="search-tab-content" id="tab-adm">
                     <!-- Will be populated by JavaScript -->
                 </div>

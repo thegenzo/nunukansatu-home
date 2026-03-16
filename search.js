@@ -134,6 +134,9 @@
                 // Append new items for "Load More"
                 if (currentBeritaData) {
                     currentBeritaData.items = [...currentBeritaData.items, ...transformedItems];
+                    // Update count with total items loaded so far
+                    currentBeritaData.count = currentBeritaData.items.length;
+                    console.log(`📊 Berita count updated after Load More: ${currentBeritaData.count}`);
                 }
                 currentBeritaPage = page;
             }
@@ -179,8 +182,8 @@
         if (!searchData) return;
 
         // Update tab counts dynamically
-        document.querySelector('[data-tab="publik"] .tab-count').textContent = searchData.informasi_publik.count;
-        document.querySelector('[data-tab="adm"] .tab-count').textContent = searchData.informasi_adm.count;
+        document.querySelector('[data-tab="publik"] .tab-count').textContent = searchData.layanan_publik.count;
+        document.querySelector('[data-tab="adm"] .tab-count').textContent = searchData.layanan_adm.count;
 
         // Fetch initial berita from API
         await fetchBeritaFromAPI();
@@ -194,6 +197,14 @@
         renderTabContent('publik');
         renderTabContent('adm');
         renderTabContent('berita');
+        
+        // Update 'Semua' tab count with accurate total (publik + adm + berita from API)
+        const semuaCountEl = document.querySelector('[data-tab="all"] .tab-count');
+        if (semuaCountEl) {
+            const totalCount = searchData.layanan_publik.count + searchData.layanan_adm.count + (currentBeritaData?.count || 0);
+            semuaCountEl.textContent = totalCount;
+            console.log(`📊 Initial 'Semua' tab count set to: ${totalCount}`);
+        }
     }
 
     function renderTabContent(tabName) {
@@ -206,8 +217,8 @@
 
         if (tabName === 'all') {
             // Show all sections
-            html += renderSection('informasi_publik', searchData.informasi_publik);
-            html += renderSection('informasi_adm', searchData.informasi_adm);
+            html += renderSection('layanan_publik', searchData.layanan_publik);
+            html += renderSection('layanan_adm', searchData.layanan_adm);
             // For berita in 'all' tab, use currentBeritaData if available
             if (currentBeritaData) {
                 console.log('📰 Using API berita data for all tab:', currentBeritaData.items.length, 'items');
@@ -217,9 +228,9 @@
                 html += renderSection('berita', searchData.berita);
             }
         } else if (tabName === 'publik') {
-            html += renderSection('informasi_publik', searchData.informasi_publik);
+            html += renderSection('layanan_publik', searchData.layanan_publik);
         } else if (tabName === 'adm') {
-            html += renderSection('informasi_adm', searchData.informasi_adm);
+            html += renderSection('layanan_adm', searchData.layanan_adm);
         } else if (tabName === 'berita') {
             // For berita tab, use currentBeritaData if available
             if (currentBeritaData) {
@@ -290,7 +301,87 @@
     }
 
     // ============================================
-    // EVENT LISTENERS
+    // SEARCH FILTERING LOGIC
+    // ============================================
+    function applySearchFilter(searchTerm) {
+        const searchItems = document.querySelectorAll('.search-item');
+        const searchSections = document.querySelectorAll('.search-section');
+        
+        console.log(`🔍 Applying search filter - Term: "${searchTerm}", Total items: ${searchItems.length}`);
+
+        // Filter items based on search term
+        searchItems.forEach((item) => {
+            const title = item.querySelector('.item-title').textContent.toLowerCase();
+            const categoryOrDate = item.querySelector('.item-category, .item-date');
+            const categoryOrDateText = categoryOrDate ? categoryOrDate.textContent.toLowerCase() : '';
+            
+            // Get keywords from data attribute if available
+            const keywordsText = item.getAttribute('data-keywords') ? item.getAttribute('data-keywords').toLowerCase() : '';
+
+            const matches = title.includes(searchTerm) 
+                || categoryOrDateText.includes(searchTerm)
+                || keywordsText.includes(searchTerm);
+            
+            // Check if this is a news item (already filtered by API)
+            const isNewsItem = item.classList.contains('news-item');
+            
+            if (searchTerm) {
+                // When search term is active:
+                // - For news items: Show all (already filtered by API), don't apply additional filtering
+                // - For publik/adm items: Apply local filtering
+                if (isNewsItem) {
+                    // News items are already server-filtered, show them all
+                    item.style.display = 'flex';
+                } else {
+                    // Publik & ADM items: apply local filtering
+                    if (matches) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            } else {
+                // No search term: show all items
+                item.style.display = 'flex';
+            }
+        });
+
+        // Check each section for visibility and show "Tidak ditemukan" message if needed
+        searchSections.forEach(section => {
+            const visibleItems = section.querySelectorAll('.search-item:not([style*="display: none"])');
+            const notFoundMsg = section.querySelector('.search-not-found');
+            const itemsContainer = section.querySelector('.section-items');
+            const showMoreBtn = section.querySelector('.search-show-more-btn');
+            const sectionTitle = section.querySelector('.section-title span:first-child')?.textContent || 'Unknown';
+            
+            console.log(`📊 Section "${sectionTitle}" - Visible items: ${visibleItems.length}`);
+            
+            if (visibleItems.length === 0) {
+                // No visible items - hide grid and show "Tidak ditemukan"
+                if (itemsContainer) {
+                    itemsContainer.style.display = 'none';
+                }
+                if (showMoreBtn) {
+                    showMoreBtn.style.display = 'none';
+                }
+                if (notFoundMsg) {
+                    notFoundMsg.style.display = 'block';
+                }
+            } else {
+                // Have visible items - show grid and hide "Tidak ditemukan"
+                if (itemsContainer) {
+                    itemsContainer.style.display = 'grid';
+                }
+                if (showMoreBtn) {
+                    showMoreBtn.style.display = 'block';
+                }
+                if (notFoundMsg) {
+                    notFoundMsg.style.display = 'none';
+                }
+            }
+        });
+    }
+
     // ============================================
     function setupEventListeners() {
         console.log('🎯 Setting up event listeners...');
@@ -355,8 +446,15 @@
                     renderTabContent(tabName);
                 }
 
-                // Update tab counts for current search term
+                // Get current search term and re-apply filter if needed
                 const searchTerm = searchInput.value.toLowerCase();
+                if (searchTerm) {
+                    // Re-apply search filter to newly active tab
+                    console.log(`🔍 Re-applying search filter after tab switch: "${searchTerm}"`);
+                    applySearchFilter(searchTerm);
+                }
+
+                // Update tab counts for current search term
                 updateTabCounts(searchTerm);
             });
         });
@@ -379,65 +477,8 @@
                 renderTabContent(activeTab);
             }
             
-            // Apply local search filtering on all sections
-            const searchItems = document.querySelectorAll('.search-item');
-            const searchSections = document.querySelectorAll('.search-section');
-            
-            console.log('🔍 Total search items found:', searchItems.length);
-
-            searchItems.forEach((item, index) => {
-                const title = item.querySelector('.item-title').textContent.toLowerCase();
-                const categoryOrDate = item.querySelector('.item-category, .item-date');
-                const categoryOrDateText = categoryOrDate ? categoryOrDate.textContent.toLowerCase() : '';
-                
-                // Get keywords from data attribute if available
-                const keywordsText = item.getAttribute('data-keywords') ? item.getAttribute('data-keywords').toLowerCase() : '';
-
-                const matches = title.includes(searchTerm) 
-                    || categoryOrDateText.includes(searchTerm)
-                    || keywordsText.includes(searchTerm);
-                
-                if (matches) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            // Check each section for visibility and show "Tidak ditemukan" message if needed
-            searchSections.forEach(section => {
-                const visibleItems = section.querySelectorAll('.search-item:not([style*="display: none"])');
-                const notFoundMsg = section.querySelector('.search-not-found');
-                const itemsContainer = section.querySelector('.section-items');
-                const showMoreBtn = section.querySelector('.search-show-more-btn');
-                const sectionTitle = section.querySelector('.section-title span:first-child')?.textContent || 'Unknown';
-                
-                console.log(`📊 Section "${sectionTitle}" - Visible items: ${visibleItems.length}`);
-                
-                if (visibleItems.length === 0) {
-                    // No visible items - hide grid and show "Tidak ditemukan"
-                    if (itemsContainer) {
-                        itemsContainer.style.display = 'none';
-                    }
-                    if (showMoreBtn) {
-                        showMoreBtn.style.display = 'none';
-                    }
-                    if (notFoundMsg) {
-                        notFoundMsg.style.display = 'block';
-                    }
-                } else {
-                    // Have visible items - show grid and hide "Tidak ditemukan"
-                    if (itemsContainer) {
-                        itemsContainer.style.display = 'grid';
-                    }
-                    if (showMoreBtn) {
-                        showMoreBtn.style.display = 'block';
-                    }
-                    if (notFoundMsg) {
-                        notFoundMsg.style.display = 'none';
-                    }
-                }
-            });
+            // Apply search filter to items
+            applySearchFilter(searchTerm);
 
             // Update tab counts dynamically based on filtered results
             updateTabCounts(searchTerm);
@@ -448,30 +489,37 @@
         if (!searchTerm) {
             // Reset to original counts when search is cleared
             if (searchData) {
-                const totalCount = searchData.informasi_publik.count + searchData.informasi_adm.count + (currentBeritaData?.count || 0);
-                document.querySelector('[data-tab="all"] .tab-count').textContent = totalCount;
-                document.querySelector('[data-tab="publik"] .tab-count').textContent = searchData.informasi_publik.count;
-                document.querySelector('[data-tab="adm"] .tab-count').textContent = searchData.informasi_adm.count;
+                const totalCount = searchData.layanan_publik.count + searchData.layanan_adm.count + (currentBeritaData?.count || 0);
+                const allCountEl = document.querySelector('[data-tab="all"] .tab-count');
+                const publikCountEl = document.querySelector('[data-tab="publik"] .tab-count');
+                const admCountEl = document.querySelector('[data-tab="adm"] .tab-count');
+                const beritaCountEl = document.querySelector('[data-tab="berita"] .tab-count');
                 
-                // Reset section counts to original values
-                const publikSectionCount = document.querySelector('[data-section="informasi_publik"] .section-count');
-                const admSectionCount = document.querySelector('[data-section="informasi_adm"] .section-count');
-                const beritaSectionCount = document.querySelector('[data-section="berita"] .section-count');
+                if (allCountEl) allCountEl.textContent = String(totalCount);
+                if (publikCountEl) publikCountEl.textContent = String(searchData.layanan_publik.count);
+                if (admCountEl) admCountEl.textContent = String(searchData.layanan_adm.count);
+                if (beritaCountEl && currentBeritaData) beritaCountEl.textContent = String(currentBeritaData.count);
                 
-                if (publikSectionCount) publikSectionCount.textContent = searchData.informasi_publik.count;
-                if (admSectionCount) admSectionCount.textContent = searchData.informasi_adm.count;
-                if (beritaSectionCount && currentBeritaData) beritaSectionCount.textContent = currentBeritaData.count;
-            }
-            if (currentBeritaData) {
-                document.querySelector('[data-tab="berita"] .tab-count').textContent = currentBeritaData.count;
+                // Reset section counts to original values (update ALL instances - sections appear in both Semua tab and individual tabs)
+                document.querySelectorAll('[data-section="layanan_publik"] .section-count').forEach(el => {
+                    el.textContent = String(searchData.layanan_publik.count);
+                });
+                document.querySelectorAll('[data-section="layanan_adm"] .section-count').forEach(el => {
+                    el.textContent = String(searchData.layanan_adm.count);
+                });
+                if (currentBeritaData) {
+                    document.querySelectorAll('[data-section="berita"] .section-count').forEach(el => {
+                        el.textContent = String(currentBeritaData.count);
+                    });
+                }
             }
             console.log('🔄 Tab counts reset to original values');
             return;
         }
 
         // Count visible items in each section
-        const publikSection = document.querySelector('[data-section="informasi_publik"]');
-        const admSection = document.querySelector('[data-section="informasi_adm"]');
+        const publikSection = document.querySelector('[data-section="layanan_publik"]');
+        const admSection = document.querySelector('[data-section="layanan_adm"]');
         const beritaSection = document.querySelector('[data-section="berita"]');
 
         let publikVisible = 0;
@@ -479,45 +527,60 @@
         let beritaVisible = 0;
 
         if (publikSection) {
-            publikVisible = publikSection.querySelectorAll('.search-item:not([style*="display: none"])').length;
-            document.querySelector('[data-tab="publik"] .tab-count').textContent = publikVisible;
+            // Count items where style.display is NOT 'none'
+            const publikItems = Array.from(publikSection.querySelectorAll('.search-item'));
+            publikVisible = publikItems.filter(item => item.style.display !== 'none').length;
             
-            // Update section count for Publik
-            const publikSectionCount = publikSection.querySelector('.section-count');
-            if (publikSectionCount) {
-                publikSectionCount.textContent = publikVisible;
-            }
+            // Update tab counter
+            const publikCountEl = document.querySelector('[data-tab="publik"] .tab-count');
+            if (publikCountEl) publikCountEl.textContent = String(publikVisible);
+            
+            // Update ALL instances of section-count (appears in Semua tab AND Layanan Publik tab)
+            document.querySelectorAll('[data-section="layanan_publik"] .section-count').forEach(el => {
+                el.textContent = String(publikVisible);
+            });
             console.log(`📊 Publik tab count updated: ${publikVisible}`);
         }
 
         if (admSection) {
-            admVisible = admSection.querySelectorAll('.search-item:not([style*="display: none"])').length;
-            document.querySelector('[data-tab="adm"] .tab-count').textContent = admVisible;
+            // Count items where style.display is NOT 'none'
+            const admItems = Array.from(admSection.querySelectorAll('.search-item'));
+            admVisible = admItems.filter(item => item.style.display !== 'none').length;
             
-            // Update section count for ADM
-            const admSectionCount = admSection.querySelector('.section-count');
-            if (admSectionCount) {
-                admSectionCount.textContent = admVisible;
-            }
+            // Update tab counter
+            const admCountEl = document.querySelector('[data-tab="adm"] .tab-count');
+            if (admCountEl) admCountEl.textContent = String(admVisible);
+            
+            // Update ALL instances of section-count (appears in Semua tab AND Layanan ADM tab)
+            document.querySelectorAll('[data-section="layanan_adm"] .section-count').forEach(el => {
+                el.textContent = String(admVisible);
+            });
             console.log(`📊 ADM tab count updated: ${admVisible}`);
         }
 
         if (beritaSection) {
-            beritaVisible = beritaSection.querySelectorAll('.search-item:not([style*="display: none"])').length;
-            document.querySelector('[data-tab="berita"] .tab-count').textContent = beritaVisible;
-            
-            // Update section count for Berita
-            const beritaSectionCount = beritaSection.querySelector('.section-count');
-            if (beritaSectionCount) {
-                beritaSectionCount.textContent = beritaVisible;
-            }
-            console.log(`📊 Berita tab count updated: ${beritaVisible}`);
+            // Count items where style.display is NOT 'none'
+            const beritaItems = Array.from(beritaSection.querySelectorAll('.search-item'));
+            beritaVisible = beritaItems.filter(item => item.style.display !== 'none').length;
         }
 
+        // For berita tab counter during search filtering, use currentBeritaData.count (API result)
+        // This is consistent with how berita items are included in the 'Semua' total
+        // Berita items are already filtered by API, so all items are relevant
+        const beritaCountFromAPI = currentBeritaData?.count || 0;
+        const beritaCountEl = document.querySelector('[data-tab="berita"] .tab-count');
+        if (beritaCountEl) beritaCountEl.textContent = String(beritaCountFromAPI);
+        // Update ALL instances of berita section-count
+        document.querySelectorAll('[data-section="berita"] .section-count').forEach(el => {
+            el.textContent = String(beritaCountFromAPI);
+        });
+        console.log(`📊 Berita tab count updated: ${beritaCountFromAPI}`);
+
         // Update total count for 'Semua' tab
-        const totalVisible = publikVisible + admVisible + beritaVisible;
-        document.querySelector('[data-tab="all"] .tab-count').textContent = totalVisible;
-        console.log(`📊 Total (Semua) tab count updated: ${totalVisible}`);
+        const totalVisible = publikVisible + admVisible + beritaCountFromAPI;
+        const allCountEl = document.querySelector('[data-tab="all"] .tab-count');
+        if (allCountEl) allCountEl.textContent = String(totalVisible);
+        console.log(`📊 Total (Semua) tab count updated: ${totalVisible} (Publik: ${publikVisible}, ADM: ${admVisible}, Berita: ${beritaCountFromAPI})`);
     }
 
     // ============================================
@@ -604,6 +667,17 @@
                     // Re-render just the berita section with appended items
                     const activeTab = document.querySelector('.search-tab.active').getAttribute('data-tab');
                     renderTabContent(activeTab);
+                    
+                    // Re-apply search filter to newly rendered items if search term active
+                    const searchTerm = searchInput.value.toLowerCase();
+                    if (searchTerm) {
+                        console.log(`🔍 Re-applying search filter after Load More: "${searchTerm}"`);
+                        applySearchFilter(searchTerm);
+                    }
+                    
+                    // Update counters after loading more items
+                    updateTabCounts(searchTerm);
+                    console.log('📊 Tab counts updated after Load More');
                 });
             } else {
                 // No more pages
@@ -626,6 +700,11 @@
                 btn.querySelector('i').classList.add('bi-chevron-up');
                 btn.querySelector('span').textContent = 'Show Less';
             }
+            
+            // Update counters after expand/collapse
+            const searchTerm = searchInput.value.toLowerCase();
+            updateTabCounts(searchTerm);
+            console.log('📊 Tab counts updated after Show More/Less');
         }
     }
 
