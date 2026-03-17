@@ -48,6 +48,13 @@ function createSearchModalHTML() {
                     <span class="tab-label">Berita</span>
                     <span class="tab-count">0</span>
                 </button>
+                <button class="search-tab" data-tab="data-informasi">
+                    <span class="tab-icon">
+                        <i class="bi bi-database"></i>
+                    </span>
+                    <span class="tab-label">Data & Informasi</span>
+                    <span class="tab-count">0</span>
+                </button>
             </div>
 
             <!-- Search Results Content -->
@@ -69,6 +76,11 @@ function createSearchModalHTML() {
 
                 <!-- Tab: Berita -->
                 <div class="search-tab-content" id="tab-berita">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <!-- Tab: Data & Informasi -->
+                <div class="search-tab-content" id="tab-data-informasi">
                     <!-- Will be populated by JavaScript -->
                 </div>
             </div>

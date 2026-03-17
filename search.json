@@ -207,6 +207,86 @@
           "keywords": ["kinerja", "penilaian", "target", "realisasi", "sasaran kerja", "capaian", "evaluasi kerja", "monitoring target", "pencapaian OPD", "target capaian"]
         }
       ]
+    },
+    "data_informasi": {
+      "label": "Data & Informasi",
+      "count": 9,
+      "icon": "bi-database",
+      "service_page": "data_informasi",
+      "items": [
+        {
+          "id": "data_1",
+          "title": "Profil Daerah",
+          "category": "Profil & Statistik",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=profil",
+          "keywords": ["profil", "profil daerah", "kabupaten nunukan", "statistik daerah", "demografi", "geografi", "kependudukan", "potensi daerah", "informasi wilayah", "data kabupaten", "sejarah daerah", "pemerintahan daerah", "OPD"]
+        },
+        {
+          "id": "data_2",
+          "title": "Satu Data",
+          "category": "Data & Statistik",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=satudata",
+          "keywords": ["satu data", "data terpadu", "statistik", "data pemerintah", "dataset", "portal data", "open data", "data terbuka", "informasi statistik", "data pembangunan", "indikator", "database", "repositori"]
+        },
+        {
+          "id": "data_3",
+          "title": "Pengumuman",
+          "category": "Pengumuman & Informasi",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=pengumuman",
+          "keywords": ["pengumuman", "pemberitahuan", "notifikasi", "info terbaru", "berita resmi", "siaran pers", "press release", "informasi resmi", "maklumat", "edaran", "surat edaran", "pengumuman resmi", "warta"]
+        },
+        {
+          "id": "data_4",
+          "title": "JDIH",
+          "category": "Hukum & Regulasi",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=jdih",
+          "keywords": ["jaringan dokumentasi informasi hukum", "hukum", "peraturan", "undang-undang", "regulasi", "dokumentasi hukum", "produk hukum", "perda", "peraturan daerah", "keputusan bupati", "peraturan bupati", "legal", "legislasi", "pidana", "perdata"]
+        },
+        {
+          "id": "data_5",
+          "title": "Berita Daerah",
+          "category": "Berita & Informasi",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=berita",
+          "keywords": ["berita", "berita daerah", "berita terkini", "news", "kabar", "info terbaru", "warta", "liputan", "artikel berita", "kejadian terbaru", "informasi terkini", "berita kabupaten", "pers"]
+        },
+        {
+          "id": "data_6",
+          "title": "Proyek Strategis Daerah",
+          "category": "Pembangunan & Proyek",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=proyek-strategis",
+          "keywords": ["proyek", "proyek strategis", "pembangunan", "infrastruktur", "rencana pembangunan", "investasi daerah", "PSN", "program strategis", "mega proyek", "proyek prioritas", "pembangunan daerah", "progres proyek", "konstruksi"]
+        },
+        {
+          "id": "data_7",
+          "title": "Transparansi Anggaran",
+          "category": "Keuangan & Anggaran",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=transparansi-anggaran",
+          "keywords": ["anggaran", "transparansi", "APBD", "keuangan daerah", "belanja daerah", "pendapatan daerah", "laporan keuangan", "realisasi anggaran", "transparansi keuangan", "open budget", "akuntabilitas", "pertanggungjawaban anggaran", "fiskal"]
+        },
+        {
+          "id": "data_8",
+          "title": "Informasi ADM Pemerintah",
+          "category": "Administrasi Pemerintah",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=informasi-adm",
+          "keywords": ["administrasi", "pemerintahan", "tata kelola", "birokrasi", "OPD", "sakip", "LPPD", "laporan kinerja", "renstra", "renja", "program kerja", "kebijakan pemerintah", "informasi administrasi", "tata pemerintahan"]
+        },
+        {
+          "id": "data_9",
+          "title": "Informasi Publik",
+          "category": "Informasi Publik",
+          "type": "data_informasi",
+          "link": "./mall-data-informasi.html?menu=informasi-publik",
+          "keywords": ["informasi publik", "keterbukaan informasi", "KIP", "PPID", "informasi wajib berkala", "DIP", "daftar informasi publik", "sengketa informasi", "akses informasi", "UU KIP", "transparansi pemerintah", "hak informasi", "kebebasan informasi"]
+        }
+      ]
     }
   }
 }

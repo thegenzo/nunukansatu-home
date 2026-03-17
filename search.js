@@ -184,6 +184,7 @@
         // Update tab counts dynamically
         document.querySelector('[data-tab="publik"] .tab-count').textContent = searchData.layanan_publik.count;
         document.querySelector('[data-tab="adm"] .tab-count').textContent = searchData.layanan_adm.count;
+        document.querySelector('[data-tab="data-informasi"] .tab-count').textContent = searchData.data_informasi.count;
 
         // Fetch initial berita from API
         await fetchBeritaFromAPI();
@@ -197,11 +198,12 @@
         renderTabContent('publik');
         renderTabContent('adm');
         renderTabContent('berita');
+        renderTabContent('data-informasi');
         
-        // Update 'Semua' tab count with accurate total (publik + adm + berita from API)
+        // Update 'Semua' tab count with accurate total (publik + adm + berita from API + data_informasi)
         const semuaCountEl = document.querySelector('[data-tab="all"] .tab-count');
         if (semuaCountEl) {
-            const totalCount = searchData.layanan_publik.count + searchData.layanan_adm.count + (currentBeritaData?.count || 0);
+            const totalCount = searchData.layanan_publik.count + searchData.layanan_adm.count + (currentBeritaData?.count || 0) + searchData.data_informasi.count;
             semuaCountEl.textContent = totalCount;
             console.log(`📊 Initial 'Semua' tab count set to: ${totalCount}`);
         }
@@ -227,6 +229,7 @@
                 console.log('📰 Using fallback berita data for all tab');
                 html += renderSection('berita', searchData.berita);
             }
+            html += renderSection('data_informasi', searchData.data_informasi);
         } else if (tabName === 'publik') {
             html += renderSection('layanan_publik', searchData.layanan_publik);
         } else if (tabName === 'adm') {
@@ -240,6 +243,8 @@
                 console.log('📰 Using fallback berita data for berita tab');
                 html += renderSection('berita', searchData.berita);
             }
+        } else if (tabName === 'data-informasi') {
+            html += renderSection('data_informasi', searchData.data_informasi);
         }
 
         contentContainer.innerHTML = html;
@@ -489,16 +494,18 @@
         if (!searchTerm) {
             // Reset to original counts when search is cleared
             if (searchData) {
-                const totalCount = searchData.layanan_publik.count + searchData.layanan_adm.count + (currentBeritaData?.count || 0);
+                const totalCount = searchData.layanan_publik.count + searchData.layanan_adm.count + (currentBeritaData?.count || 0) + searchData.data_informasi.count;
                 const allCountEl = document.querySelector('[data-tab="all"] .tab-count');
                 const publikCountEl = document.querySelector('[data-tab="publik"] .tab-count');
                 const admCountEl = document.querySelector('[data-tab="adm"] .tab-count');
                 const beritaCountEl = document.querySelector('[data-tab="berita"] .tab-count');
+                const dataInformasiCountEl = document.querySelector('[data-tab="data-informasi"] .tab-count');
                 
                 if (allCountEl) allCountEl.textContent = String(totalCount);
                 if (publikCountEl) publikCountEl.textContent = String(searchData.layanan_publik.count);
                 if (admCountEl) admCountEl.textContent = String(searchData.layanan_adm.count);
                 if (beritaCountEl && currentBeritaData) beritaCountEl.textContent = String(currentBeritaData.count);
+                if (dataInformasiCountEl) dataInformasiCountEl.textContent = String(searchData.data_informasi.count);
                 
                 // Reset section counts to original values (update ALL instances - sections appear in both Semua tab and individual tabs)
                 document.querySelectorAll('[data-section="layanan_publik"] .section-count').forEach(el => {
@@ -512,6 +519,9 @@
                         el.textContent = String(currentBeritaData.count);
                     });
                 }
+                document.querySelectorAll('[data-section="data_informasi"] .section-count').forEach(el => {
+                    el.textContent = String(searchData.data_informasi.count);
+                });
             }
             console.log('🔄 Tab counts reset to original values');
             return;
@@ -521,10 +531,12 @@
         const publikSection = document.querySelector('[data-section="layanan_publik"]');
         const admSection = document.querySelector('[data-section="layanan_adm"]');
         const beritaSection = document.querySelector('[data-section="berita"]');
+        const dataInformasiSection = document.querySelector('[data-section="data_informasi"]');
 
         let publikVisible = 0;
         let admVisible = 0;
         let beritaVisible = 0;
+        let dataInformasiVisible = 0;
 
         if (publikSection) {
             // Count items where style.display is NOT 'none'
@@ -576,11 +588,24 @@
         });
         console.log(`📊 Berita tab count updated: ${beritaCountFromAPI}`);
 
+        if (dataInformasiSection) {
+            const dataInformasiItems = Array.from(dataInformasiSection.querySelectorAll('.search-item'));
+            dataInformasiVisible = dataInformasiItems.filter(item => item.style.display !== 'none').length;
+
+            const dataInformasiCountEl = document.querySelector('[data-tab="data-informasi"] .tab-count');
+            if (dataInformasiCountEl) dataInformasiCountEl.textContent = String(dataInformasiVisible);
+
+            document.querySelectorAll('[data-section="data_informasi"] .section-count').forEach(el => {
+                el.textContent = String(dataInformasiVisible);
+            });
+            console.log(`📊 Data & Informasi tab count updated: ${dataInformasiVisible}`);
+        }
+
         // Update total count for 'Semua' tab
-        const totalVisible = publikVisible + admVisible + beritaCountFromAPI;
+        const totalVisible = publikVisible + admVisible + beritaCountFromAPI + dataInformasiVisible;
         const allCountEl = document.querySelector('[data-tab="all"] .tab-count');
         if (allCountEl) allCountEl.textContent = String(totalVisible);
-        console.log(`📊 Total (Semua) tab count updated: ${totalVisible} (Publik: ${publikVisible}, ADM: ${admVisible}, Berita: ${beritaCountFromAPI})`);
+        console.log(`📊 Total (Semua) tab count updated: ${totalVisible} (Publik: ${publikVisible}, ADM: ${admVisible}, Berita: ${beritaCountFromAPI}, Data: ${dataInformasiVisible})`);
     }
 
     // ============================================
@@ -623,6 +648,8 @@
             servicePageUrl = `./public-services/public-service.html?name=${encodeURIComponent(title)}&url=${encodeURIComponent(link)}`;
         } else if (servicePage === 'adm') {
             servicePageUrl = `./government-administration-service/administration-service.html?name=${encodeURIComponent(title)}&url=${encodeURIComponent(link)}`;
+        } else if (servicePage === 'data_informasi') {
+            servicePageUrl = link;
         }
 
         if (servicePageUrl) {

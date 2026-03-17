@@ -633,6 +633,28 @@
                     switchMenu(btnInformasiPublik, contentComingSoon);
                 });
             }
+
+            // Deep link: read ?menu= param and activate the corresponding menu
+            const urlParams = new URLSearchParams(window.location.search);
+            const menuParam = urlParams.get('menu');
+            if (menuParam) {
+                const menuMap = {
+                    'profil':                 { btn: btnProfilDaerah,          content: contentProfilDaerah },
+                    'satudata':               { btn: btnSatuData,              content: contentSatuData },
+                    'pengumuman':             { btn: btnPengumuman,            content: contentComingSoon },
+                    'jdih':                   { btn: btnJDIH,                  content: contentJDIH },
+                    'berita':                 { btn: btnBerita,                content: contentBerita },
+                    'proyek-strategis':       { btn: btnProyekStrategis,       content: contentComingSoon },
+                    'transparansi-anggaran':  { btn: btnTransparansiAnggaran,  content: contentComingSoon },
+                    'informasi-adm':          { btn: btnInformasiADM,          content: contentComingSoon },
+                    'informasi-publik':       { btn: btnInformasiPublik,       content: contentComingSoon }
+                };
+                const target = menuMap[menuParam];
+                if (target) {
+                    switchMenu(target.btn, target.content);
+                    target.btn?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
         });
     </script>
 </body>
