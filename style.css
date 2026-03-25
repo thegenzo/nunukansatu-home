@@ -1699,9 +1699,15 @@ footer {
 }
 
 .search-item:hover {
-    background-color: #FAFAFA;
-    box-shadow: 0 2px 4px rgba(211, 47, 47, 0.1);
+    background-color: #D32F2F;
+    box-shadow: 0 2px 4px rgba(211, 47, 47, 0.3);
     padding-left: 20px;
+}
+
+.search-item:hover .item-title,
+.search-item:hover .item-category,
+.search-item:hover .item-date {
+    color: white;
 }
 
 .search-item.news-item {
@@ -1912,7 +1918,15 @@ footer {
     }
 
     .search-item:hover {
+        background-color: #D32F2F;
+        box-shadow: 0 2px 4px rgba(211, 47, 47, 0.3);
         padding-left: 18px;
+    }
+
+    .search-item:hover .item-title,
+    .search-item:hover .item-category,
+    .search-item:hover .item-date {
+        color: white;
     }
 
     .item-title {
